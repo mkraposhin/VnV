@@ -2,6 +2,8 @@
 
 The primary objective of the repository to gather and keep updated verification and validation problems showing strengths and weakneses of the aforementioned computational complexes.
 
+## The structure of the repository
+
 The structure of the repository is next.
 
 1. On the first level go folders with titles of problems.
@@ -13,4 +15,20 @@ The structure of the repository is next.
    - for common data shared by different solvers (common/) cases.
 3. On the third level, inside the solver folders we keep computational cases in folders with names specifying the mesh density (e.g., 10CPD, 20CPL, etc).
 
-The wish list of cases to check is maintained using the [issues](https://github.com/mkraposhin/VnV/issues) section of the repository with all neccesary links to reference data and description of problems.
+The wish list of cases to check is maintained using the [issues](https://github.com/mkraposhin/VnV/issues) section of the repository with all neccesary links to reference data and description of problems.  
+
+## Examples of the structure
+
+    SodProblem/
+        reference/
+        docs/
+        comparison/
+        QGDFoam/
+            100CPL/
+            200CPL/
+            400CPL/
+        pimpleCentralFoam/
+            100CPL/
+            200CPL/
+            400CPL/
+    
