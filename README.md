@@ -13,4 +13,4 @@ The structure of the repository is next.
    - for common data shared by different solvers (common/) cases.
 3. On the third level, inside the solver folders we keep computational cases in folders with names specifying the mesh density (e.g., 10CPD, 20CPL, etc).
 
-Together with this README.md on the first level we also keep the wish-list file containing the list of cases to run.
+The wish list of cases to check is maintained using the [issues](https://github.com/mkraposhin/VnV/issues) section of the repository with all neccesary links to reference data and description of problems.
