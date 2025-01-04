@@ -20,7 +20,7 @@ jobs:
       - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git
       - run: |
           source /usr/lib/openfoam/openfoam2406/etc/bashrc
-          cd QGDsolver
+          cd  ~/work/VnV/VnV/QGDsolver
           ./SwitchDest
           ./SwitchDest USER
           mkdir -p $FOAM_USER_APPBIN
