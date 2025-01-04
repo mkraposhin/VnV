@@ -17,6 +17,11 @@ jobs:
       - uses: gerlero/setup-openfoam@v1
         with:
           openfoam-version: 2406
+      - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git
+      - run: |
+          cd QGDsolver
+          ./SwitchDest USER
+          cd ../
       - name: A step that will always fail
         run: |
             echo "this step will wait 10 seconds and always fails"
