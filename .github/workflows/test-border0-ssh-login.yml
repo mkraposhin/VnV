@@ -19,7 +19,7 @@ jobs:
           openfoam-version: 2406
       - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git
       - run: |
-          . /usr/lib/openfoam/openfoam2406/etc/bashrc
+          /usr/bin/openfoam2406
           cd  /home/runner/work/VnV/VnV/QGDsolver
           ./SwitchDest
           ./SwitchDest USER
