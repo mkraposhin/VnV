@@ -25,6 +25,7 @@ jobs:
           ./SwitchDest USER
           mkdir -p $FOAM_USER_APPBIN
           mkdir -p $FOAM_USER_LIBBIN
+          ./Allwmake
           cd ../
       - name: A step that will always fail
         run: |
