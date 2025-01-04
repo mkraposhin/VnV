@@ -13,6 +13,10 @@ jobs:
   gh-action-job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: gerlero/setup-openfoam@v1
+        with:
+          openfoam-version: 2406
       - name: A step that will always fail
         run: |
             echo "this step will wait 10 seconds and always fails"
