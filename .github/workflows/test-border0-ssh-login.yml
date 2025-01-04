@@ -1,0 +1,26 @@
+name: CI/CD Pipeline with Border0 GitHub Action
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: Manual trigger
+        required: false
+        default: false
+
+jobs:
+  gh-action-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A step that will always fail
+        run: |
+            echo "this step will wait 10 seconds and always fails"
+            sleep 10
+            exit 1
+      - name: Start Border0 in case of failure.
+        if: failure()
+        uses: borderzero/gh-action@v2
+        with:
+          token: ${{ secrets.BORDER0_GHA_LOGIN }}
+          wait-for: 20
