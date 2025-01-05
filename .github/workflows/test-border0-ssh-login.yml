@@ -17,10 +17,10 @@ jobs:
       - uses: gerlero/setup-openfoam@v1
         with:
           openfoam-version: 2406
-      - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git ~/home/runner/Work/VnV/QGDsolver
+      - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git ~/Work/VnV/QGDsolver
       - run: |
           /usr/bin/openfoam2406
-          cd  /home/runner/work/VnV/QGDsolver
+          cd  ~/work/VnV/QGDsolver
           ./SwitchDest
           ./SwitchDest USER
           mkdir -p $FOAM_USER_APPBIN
