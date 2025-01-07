@@ -1,6 +1,5 @@
 name: CI/CD Pipeline with Border0 GitHub Action
 on:
-  push:
   workflow_dispatch:
     inputs:
       debug:
