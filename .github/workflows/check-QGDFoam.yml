@@ -1,0 +1,34 @@
+name: checks QGDFoam solver
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: Manual trigger
+        required: false
+        default: false
+  
+  gh-action-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gerlero/setup-openfoam@v1
+        with:
+          openfoam-version: 2406
+      - run: git clone -b digitef-v2312 https://github.com/mkraposhin/QGDsolver.git ~/work/VnV/QGDsolver
+      - run: |
+          /usr/bin/openfoam2406
+          cd  ~/work/VnV/QGDsolver
+          ./SwitchDest
+          ./SwitchDest USER
+          mkdir -p $FOAM_USER_APPBIN
+          mkdir -p $FOAM_USER_LIBBIN
+          export > cenv
+          ./Allwmake
+          cd ../
+      - name: runs tests
+        run: |
+            /usr/bin/openfoam2406
+            cd ~/work/VnV/VnV
+            export studied_solvers=QGDFoam
+            ./Runtests
