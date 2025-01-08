@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 exc_files="scripts"
-if [ -v $studied_solvers ]
+if [ -v studied_solvers ]
 then
     echo "Studying solvers: $studied_solvers"
 else
