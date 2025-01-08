@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+
+source Parameters
+
+all_files=`ls`
+
+for file_name in $all_files
+do
+    if [ -d "$file_name" ] && [ "$file_name" != "$exc_files"  ]
+    then
+        cd $file_name
+        ./Allclean
+        cd ../
+    fi
+done
+
+#
+#END-OF-FILE
+#
+

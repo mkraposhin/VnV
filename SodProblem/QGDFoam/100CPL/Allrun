@@ -9,6 +9,8 @@ runApplication blockMesh
 cp -rf 0.orig 0
 runApplication setFields
 runApplication `getApplication`
-runApplication postProcess -func sampleDict
+runApplication postProcess -func sampleDict -latestTime
+python ../../../scripts/one_d_perf_gas_calc_errors.py postProcessing/sampleDict/0.25/line_T_p_rho_U.csv  ../../reference/exact.out > solution_errors
+
 
 #------------------------------------------------------------------------------

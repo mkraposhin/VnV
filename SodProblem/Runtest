@@ -1,0 +1,57 @@
+#!/usr/bin/bash
+
+if [ $# -ne 1 ]
+then
+    echo "Wrong number of supplied arguments, must be 1, while it is $#"
+fi
+
+solver_name=$1
+
+echo "$solver_name"
+
+function check_errors() {
+    local level_errors=($1)
+    local ref_errors=($2)
+    local i=0
+    while [ $i -lt 4 ]
+    do
+        #echo "(${level_errors[$i]} <= ${ref_errors[$i]})"
+        compare_floats=`echo "(${level_errors[$i]} <= ${ref_errors[$i]})" | bc`
+        if [ "$compare_floats" != "1" ]
+        then
+            echo "FAILED"
+            return
+        fi
+        i=`expr $i + 1`
+    done
+    echo "PASSED"
+}
+
+if [ -d $solver_name ]
+then
+    cd $solver_name
+        echo "|solver|mesh level|result|rho|U |p |e |" > ../$solver_name.md
+        echo "|------|----------|------|---|--|--|--|" >> ../$solver_name.md
+        mesh_levels=`ls | grep CPL`
+        for mesh_level in $mesh_levels
+        do
+            if [ -d $mesh_level ]
+            then
+                cd $mesh_level
+                echo "Running simulation for $mesh_level"
+                ./Allrun
+                level_errors=`cat solution_errors`
+                ref_errors=`cat ../../reference/$solver_name-$mesh_level`
+                level_check_res=`check_errors "$level_errors" "$ref_errors"`
+                level_line="$solver_name|$mesh_level|$level_check_res|"`echo "$level_errors" | sed 's/\ /|/g'`"|"
+                echo $level_line >> ../../$solver_name.md
+                cd ../
+            fi
+        done
+    cd ../
+fi
+
+#
+#END-OF-FILE
+#
+

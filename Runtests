@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+
+#
+#The list of solvers for testing is expected to be initialized
+#before calling the script
+
+source Parameters
+all_files=`ls`
+
+for solver in $studied_solvers
+do
+    echo "$solver" > $solver-report.md
+    echo "=======" >> $solver-report.md
+done
+
+for file_name in $all_files
+do
+    if [ -d "$file_name" ] && [ "$file_name" != "$exc_files"  ]
+    then
+        cd $file_name
+        echo "$file_name"
+        for solver in $studied_solvers
+        do
+            ./Runtest solver
+            if [ -f $solver.md ]
+            then
+                echo "" >> $solver-report.md
+                cat $solver.md >> $solver-report.md
+            fi
+        done
+        cd ../
+    fi
+done
+
+
+#
+#END-OF-FILE
+#
