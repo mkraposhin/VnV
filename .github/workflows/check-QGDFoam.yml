@@ -18,7 +18,7 @@ jobs:
       - uses: gerlero/setup-openfoam@v1
         with:
           openfoam-version: 2412
-      - run: git clone -b digitef-v2412 https://github.com/mkraposhin/QGDsolver.git ~/work/VnV/QGDsolver
+      - run: git clone -b digitef-dev-v2412 https://github.com/mkraposhin/QGDsolver.git ~/work/VnV/QGDsolver
       - run: |
           /usr/bin/openfoam2412
           cd  ~/work/VnV/QGDsolver
