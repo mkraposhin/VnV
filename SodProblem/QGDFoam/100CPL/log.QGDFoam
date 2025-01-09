@@ -1,0 +1,2308 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _9bfe8264-20241212 OPENFOAM=2406 patch=241212 version=2406
+Arch   : "LSB;label=32;scalar=64"
+Exec   : QGDFoam
+Date   : Jan 09 2025
+Time   : 11:49:13
+Host   : fv-az1344-607
+PID    : 8981
+I/O    : uncollated
+Case   : /home/runner/work/VnV/VnV/SodProblem/QGDFoam/100CPL
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            hePsiQGDThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+Selecting QGD coeffs evaluation approach type constScPrModel1
+Thermo corrected
+Creating turbulence model
+
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+Selecting finite volume surface calculus stencil type reduced
+No finite volume options present
+
+Starting time loop
+
+Courant Number = 0.0118326
+maxDeltaT1 = 0.00190152
+deltaT = 0.000120019
+Time = 0.000120019
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0010485, Final residual = 9.06489e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 3.98637e-05, Final residual = 1.69654e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.0142306
+maxDeltaT1 = 0.00190152
+deltaT = 0.000144023
+Time = 0.000264042
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00133308, Final residual = 1.10075e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 4.4427e-05, Final residual = 1.76197e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.0171183
+maxDeltaT1 = 0.00190152
+deltaT = 0.000172828
+Time = 0.00043687
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00161784, Final residual = 8.30941e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 4.89698e-05, Final residual = 2.63634e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.020982
+maxDeltaT1 = 0.00190152
+deltaT = 0.000207451
+Time = 0.000644321
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0019329, Final residual = 4.36357e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 5.33344e-05, Final residual = 3.46466e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.0259939
+maxDeltaT1 = 0.00190152
+deltaT = 0.000248858
+Time = 0.000893179
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00228876, Final residual = 1.77292e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 5.73268e-05, Final residual = 3.28223e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.0322509
+maxDeltaT1 = 0.00190152
+deltaT = 0.000298689
+Time = 0.00119187
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00269275, Final residual = 1.26795e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 6.09068e-05, Final residual = 2.69333e-16, No Iterations 1
+ExecutionTime = 0 s  ClockTime = 0 s
+
+Courant Number = 0.0401036
+maxDeltaT1 = 0.00190152
+deltaT = 0.000358513
+Time = 0.00155038
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00314518, Final residual = 1.3168e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 6.40503e-05, Final residual = 2.9254e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.0499285
+maxDeltaT1 = 0.00190152
+deltaT = 0.000429844
+Time = 0.00198022
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00363912, Final residual = 1.29534e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 6.68699e-05, Final residual = 2.81965e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.0621205
+maxDeltaT1 = 0.00190152
+deltaT = 0.000515634
+Time = 0.00249586
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00416145, Final residual = 5.53362e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 6.99194e-05, Final residual = 2.61559e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.0773077
+maxDeltaT1 = 0.00190152
+deltaT = 0.00061876
+Time = 0.00311462
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00468166, Final residual = 5.65417e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 7.40344e-05, Final residual = 2.97933e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.0961326
+maxDeltaT1 = 0.00190152
+deltaT = 0.000741398
+Time = 0.00385602
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00517245, Final residual = 1.6173e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 8.83228e-05, Final residual = 2.87912e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.119113
+maxDeltaT1 = 0.00190152
+deltaT = 0.000888606
+Time = 0.00474462
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00561543, Final residual = 7.3604e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.0001385, Final residual = 3.32478e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.150784
+maxDeltaT1 = 0.00190152
+deltaT = 0.00106633
+Time = 0.00581095
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00598111, Final residual = 1.5971e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000228744, Final residual = 2.77332e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.191123
+maxDeltaT1 = 0.00190152
+deltaT = 0.00123328
+Time = 0.00704423
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00602534, Final residual = 1.63876e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000342173, Final residual = 3.52348e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.232288
+maxDeltaT1 = 0.00190152
+deltaT = 0.0013963
+Time = 0.00844053
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00583538, Final residual = 1.81567e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000469967, Final residual = 2.63637e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.273984
+maxDeltaT1 = 0.00190152
+deltaT = 0.00152886
+Time = 0.00996938
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00539038, Final residual = 1.51785e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000582166, Final residual = 3.0089e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.309089
+maxDeltaT1 = 0.00190152
+deltaT = 0.00148167
+Time = 0.0114511
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0044028, Final residual = 2.10979e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000624366, Final residual = 3.23173e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.30476
+maxDeltaT1 = 0.00190152
+deltaT = 0.00145457
+Time = 0.0129056
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00367641, Final residual = 1.37877e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000655373, Final residual = 3.27942e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.301891
+maxDeltaT1 = 0.00190152
+deltaT = 0.0014457
+Time = 0.0143513
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00315482, Final residual = 1.43631e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000667642, Final residual = 3.11263e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.301186
+maxDeltaT1 = 0.00190152
+deltaT = 0.00143688
+Time = 0.0157882
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0027916, Final residual = 8.11374e-18, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000655192, Final residual = 2.77461e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.299518
+maxDeltaT1 = 0.00190152
+deltaT = 0.00143688
+Time = 0.0172251
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00249326, Final residual = 1.12396e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000652585, Final residual = 2.59687e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.299131
+maxDeltaT1 = 0.00189791
+deltaT = 0.00143688
+Time = 0.018662
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00222674, Final residual = 1.47538e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00064632, Final residual = 2.88219e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.298445
+maxDeltaT1 = 0.00188494
+deltaT = 0.00144586
+Time = 0.0201078
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0020327, Final residual = 1.6552e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000632287, Final residual = 3.13136e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.29947
+maxDeltaT1 = 0.00187828
+deltaT = 0.00144586
+Time = 0.0215537
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00184854, Final residual = 1.32204e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000603334, Final residual = 2.61366e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.298574
+maxDeltaT1 = 0.00187729
+deltaT = 0.00145507
+Time = 0.0230088
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00168503, Final residual = 1.45448e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000587337, Final residual = 3.16011e-16, No Iterations 1
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Courant Number = 0.299562
+maxDeltaT1 = 0.00188105
+deltaT = 0.00145507
+Time = 0.0244638
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00152412, Final residual = 1.14586e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000581383, Final residual = 2.91484e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.298672
+maxDeltaT1 = 0.00186831
+deltaT = 0.00146452
+Time = 0.0259284
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00141478, Final residual = 1.94229e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00057568, Final residual = 3.05654e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.301039
+maxDeltaT1 = 0.00185949
+deltaT = 0.00145501
+Time = 0.0273834
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00129098, Final residual = 1.26441e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000553392, Final residual = 3.05533e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.299974
+maxDeltaT1 = 0.00185561
+deltaT = 0.00145501
+Time = 0.0288384
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00118101, Final residual = 1.84713e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000541064, Final residual = 3.19707e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300252
+maxDeltaT1 = 0.0018559
+deltaT = 0.00145501
+Time = 0.0302934
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00108856, Final residual = 1.75232e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000530547, Final residual = 3.04314e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300102
+maxDeltaT1 = 0.00185808
+deltaT = 0.00145501
+Time = 0.0317484
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00101294, Final residual = 1.60294e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000512556, Final residual = 2.90505e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300884
+maxDeltaT1 = 0.00184808
+deltaT = 0.00145501
+Time = 0.0332034
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000939912, Final residual = 2.03101e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000501489, Final residual = 2.63601e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.302155
+maxDeltaT1 = 0.00184225
+deltaT = 0.00144531
+Time = 0.0346487
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000863511, Final residual = 1.31093e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000492797, Final residual = 2.6838e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300796
+maxDeltaT1 = 0.00184005
+deltaT = 0.00144531
+Time = 0.036094
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000811046, Final residual = 1.27512e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000487842, Final residual = 2.93659e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.301008
+maxDeltaT1 = 0.00184087
+deltaT = 0.00144531
+Time = 0.0375393
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000762817, Final residual = 2.03472e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000476458, Final residual = 2.99476e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.30089
+maxDeltaT1 = 0.00184113
+deltaT = 0.00144531
+Time = 0.0389847
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00071323, Final residual = 1.86144e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000459905, Final residual = 2.46193e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.301588
+maxDeltaT1 = 0.001834
+deltaT = 0.00143548
+Time = 0.0404201
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000658929, Final residual = 1.66743e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000447881, Final residual = 2.92803e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300518
+maxDeltaT1 = 0.00183003
+deltaT = 0.00143548
+Time = 0.0418556
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000626956, Final residual = 1.40255e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000439856, Final residual = 3.45651e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.301062
+maxDeltaT1 = 0.00182871
+deltaT = 0.00142565
+Time = 0.0432813
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000589072, Final residual = 2.22189e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000432484, Final residual = 3.18474e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.299198
+maxDeltaT1 = 0.00182962
+deltaT = 0.00142565
+Time = 0.0447069
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000553592, Final residual = 1.26368e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000423876, Final residual = 2.47256e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.299132
+maxDeltaT1 = 0.00182919
+deltaT = 0.00142565
+Time = 0.0461325
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000519286, Final residual = 1.55033e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000420074, Final residual = 2.31871e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.299544
+maxDeltaT1 = 0.00182394
+deltaT = 0.00142565
+Time = 0.0475582
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000496483, Final residual = 1.40221e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000416003, Final residual = 2.762e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300375
+maxDeltaT1 = 0.00182103
+deltaT = 0.00142565
+Time = 0.0489838
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000471314, Final residual = 1.47784e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000407538, Final residual = 3.14095e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.300865
+maxDeltaT1 = 0.00182012
+deltaT = 0.00142565
+Time = 0.0504095
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000444346, Final residual = 1.88351e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000395198, Final residual = 2.65371e-16, No Iterations 1
+ExecutionTime = 0.02 s  ClockTime = 0 s
+
+Courant Number = 0.301078
+maxDeltaT1 = 0.00182089
+deltaT = 0.00141554
+Time = 0.051825
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00041872, Final residual = 2.17104e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000385246, Final residual = 3.51413e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.298929
+maxDeltaT1 = 0.00182036
+deltaT = 0.00141554
+Time = 0.0532406
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000403732, Final residual = 1.69979e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000382024, Final residual = 3.13348e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299095
+maxDeltaT1 = 0.00181634
+deltaT = 0.00141554
+Time = 0.0546561
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.0003862, Final residual = 1.31381e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000377076, Final residual = 3.38516e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299822
+maxDeltaT1 = 0.0018141
+deltaT = 0.00141554
+Time = 0.0560716
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000366968, Final residual = 1.55806e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000368701, Final residual = 2.73093e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300276
+maxDeltaT1 = 0.00181337
+deltaT = 0.00141554
+Time = 0.0574872
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000350938, Final residual = 2.07829e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000364933, Final residual = 2.70362e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300501
+maxDeltaT1 = 0.00181395
+deltaT = 0.00141554
+Time = 0.0589027
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000339652, Final residual = 1.74068e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000360746, Final residual = 2.53744e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300535
+maxDeltaT1 = 0.00181363
+deltaT = 0.00141554
+Time = 0.0603182
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00032567, Final residual = 2.14585e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000353329, Final residual = 3.02284e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300496
+maxDeltaT1 = 0.00181041
+deltaT = 0.00141554
+Time = 0.0617338
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000309798, Final residual = 2.29923e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000342703, Final residual = 2.61593e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.301154
+maxDeltaT1 = 0.00180859
+deltaT = 0.00140497
+Time = 0.0631387
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000295349, Final residual = 2.52517e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000335564, Final residual = 2.79482e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299329
+maxDeltaT1 = 0.00180796
+deltaT = 0.00140497
+Time = 0.0645437
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000286902, Final residual = 1.72306e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000333868, Final residual = 3.17651e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299561
+maxDeltaT1 = 0.00180835
+deltaT = 0.00140497
+Time = 0.0659487
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000276262, Final residual = 1.6587e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000329176, Final residual = 3.2911e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299629
+maxDeltaT1 = 0.00180836
+deltaT = 0.00140497
+Time = 0.0673537
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000263802, Final residual = 1.98062e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000322279, Final residual = 3.26337e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.299557
+maxDeltaT1 = 0.00180572
+deltaT = 0.00140497
+Time = 0.0687586
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000254786, Final residual = 2.30621e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000319664, Final residual = 3.01908e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300017
+maxDeltaT1 = 0.00180417
+deltaT = 0.00140497
+Time = 0.0701636
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000248244, Final residual = 1.90255e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000316458, Final residual = 2.76533e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300421
+maxDeltaT1 = 0.00180355
+deltaT = 0.00140497
+Time = 0.0715686
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000239496, Final residual = 2.04802e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000310444, Final residual = 3.15386e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300661
+maxDeltaT1 = 0.00180377
+deltaT = 0.00140497
+Time = 0.0729735
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000229024, Final residual = 1.60135e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000301842, Final residual = 3.16499e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300757
+maxDeltaT1 = 0.00180412
+deltaT = 0.00140497
+Time = 0.0743785
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000221897, Final residual = 1.76784e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000300239, Final residual = 3.44129e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300729
+maxDeltaT1 = 0.00180188
+deltaT = 0.00140497
+Time = 0.0757835
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000216869, Final residual = 1.88767e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000299022, Final residual = 2.8173e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.300975
+maxDeltaT1 = 0.00180052
+deltaT = 0.00140497
+Time = 0.0771885
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000209841, Final residual = 1.96912e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000295147, Final residual = 3.25097e-16, No Iterations 1
+ExecutionTime = 0.03 s  ClockTime = 0 s
+
+Courant Number = 0.301358
+maxDeltaT1 = 0.00179992
+deltaT = 0.00139364
+Time = 0.0785821
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000199545, Final residual = 1.87678e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000286591, Final residual = 2.92879e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.299165
+maxDeltaT1 = 0.0018
+deltaT = 0.00139364
+Time = 0.0799757
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000194049, Final residual = 2.36187e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000284512, Final residual = 2.73023e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.29928
+maxDeltaT1 = 0.00180066
+deltaT = 0.00139364
+Time = 0.0813694
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00019028, Final residual = 1.87938e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000281955, Final residual = 2.9248e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.299287
+maxDeltaT1 = 0.00179873
+deltaT = 0.00139364
+Time = 0.082763
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000185183, Final residual = 1.59978e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000276938, Final residual = 3.17506e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.299356
+maxDeltaT1 = 0.00179751
+deltaT = 0.00139364
+Time = 0.0841567
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000178423, Final residual = 2.10913e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000271255, Final residual = 3.47094e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.299715
+maxDeltaT1 = 0.00179691
+deltaT = 0.00139364
+Time = 0.0855503
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000174462, Final residual = 1.87905e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000271413, Final residual = 2.88441e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.299953
+maxDeltaT1 = 0.00179686
+deltaT = 0.00139364
+Time = 0.086944
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000172084, Final residual = 1.84892e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000271056, Final residual = 2.63043e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300084
+maxDeltaT1 = 0.00179733
+deltaT = 0.00139364
+Time = 0.0883376
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000167987, Final residual = 2.27926e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000268408, Final residual = 3.05581e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.30012
+maxDeltaT1 = 0.00179611
+deltaT = 0.00139364
+Time = 0.0897312
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000162255, Final residual = 2.23287e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000263514, Final residual = 2.88335e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300069
+maxDeltaT1 = 0.00179499
+deltaT = 0.00139364
+Time = 0.0911249
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000159066, Final residual = 2.11476e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000261964, Final residual = 2.57816e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300398
+maxDeltaT1 = 0.00179438
+deltaT = 0.00139364
+Time = 0.0925185
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000157668, Final residual = 1.85455e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000260432, Final residual = 3.00003e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300633
+maxDeltaT1 = 0.00179425
+deltaT = 0.00139364
+Time = 0.0939122
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000154576, Final residual = 2.2809e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000256573, Final residual = 2.66546e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300773
+maxDeltaT1 = 0.00179454
+deltaT = 0.00139364
+Time = 0.0953058
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000149902, Final residual = 1.8587e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000252385, Final residual = 2.81312e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300829
+maxDeltaT1 = 0.00179388
+deltaT = 0.00139364
+Time = 0.0966994
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000147233, Final residual = 1.50455e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000252006, Final residual = 2.82566e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300809
+maxDeltaT1 = 0.00179285
+deltaT = 0.00139364
+Time = 0.0980931
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000146269, Final residual = 1.84335e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000251871, Final residual = 2.79943e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.300992
+maxDeltaT1 = 0.00179225
+deltaT = 0.00139364
+Time = 0.0994867
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000143761, Final residual = 1.67407e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000249559, Final residual = 3.14525e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.30122
+maxDeltaT1 = 0.00179205
+deltaT = 0.00139364
+Time = 0.10088
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000139775, Final residual = 2.10395e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000245156, Final residual = 2.98907e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.301365
+maxDeltaT1 = 0.00179222
+deltaT = 0.00139364
+Time = 0.102274
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000137293, Final residual = 1.6111e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000243481, Final residual = 3.02773e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.301436
+maxDeltaT1 = 0.00179198
+deltaT = 0.00138062
+Time = 0.103655
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000135307, Final residual = 1.70184e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000240208, Final residual = 3.25637e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.298621
+maxDeltaT1 = 0.00179103
+deltaT = 0.00138062
+Time = 0.105035
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000133178, Final residual = 2.05088e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000237279, Final residual = 2.85931e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.298688
+maxDeltaT1 = 0.00179045
+deltaT = 0.00138062
+Time = 0.106416
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000129684, Final residual = 2.14601e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000234382, Final residual = 3.47644e-16, No Iterations 1
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+Courant Number = 0.298904
+maxDeltaT1 = 0.0017902
+deltaT = 0.00138062
+Time = 0.107796
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000127269, Final residual = 2.04006e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000233422, Final residual = 3.00924e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.29905
+maxDeltaT1 = 0.00179026
+deltaT = 0.00138062
+Time = 0.109177
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000126927, Final residual = 1.85125e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00023364, Final residual = 2.66107e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299131
+maxDeltaT1 = 0.00179039
+deltaT = 0.00138062
+Time = 0.110558
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000125216, Final residual = 2.1295e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000231985, Final residual = 3.22668e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299153
+maxDeltaT1 = 0.00178951
+deltaT = 0.00138062
+Time = 0.111938
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000122256, Final residual = 1.80885e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000228415, Final residual = 3.1149e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299127
+maxDeltaT1 = 0.00178893
+deltaT = 0.00138062
+Time = 0.113319
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000119736, Final residual = 2.34501e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000226394, Final residual = 2.806e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299336
+maxDeltaT1 = 0.00178864
+deltaT = 0.00138062
+Time = 0.1147
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000119604, Final residual = 1.96621e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000226111, Final residual = 2.83345e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299482
+maxDeltaT1 = 0.00178862
+deltaT = 0.00138062
+Time = 0.11608
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00011814, Final residual = 1.79986e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000224637, Final residual = 3.52085e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299571
+maxDeltaT1 = 0.00178885
+deltaT = 0.00138062
+Time = 0.117461
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000115453, Final residual = 2.90186e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000222195, Final residual = 2.80262e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299608
+maxDeltaT1 = 0.0017882
+deltaT = 0.00138062
+Time = 0.118841
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.00011286, Final residual = 2.36347e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000220662, Final residual = 2.69808e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299596
+maxDeltaT1 = 0.00178764
+deltaT = 0.00138062
+Time = 0.120222
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000113012, Final residual = 2.49282e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000221613, Final residual = 2.82469e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299712
+maxDeltaT1 = 0.00178732
+deltaT = 0.00138062
+Time = 0.121603
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000111889, Final residual = 1.83574e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000220503, Final residual = 3.2543e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299856
+maxDeltaT1 = 0.00178723
+deltaT = 0.00138062
+Time = 0.122983
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000109588, Final residual = 2.35115e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000217415, Final residual = 3.51959e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.29995
+maxDeltaT1 = 0.00178737
+deltaT = 0.00138062
+Time = 0.124364
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000106865, Final residual = 2.18168e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00021462, Final residual = 2.55645e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.299997
+maxDeltaT1 = 0.00178707
+deltaT = 0.00138062
+Time = 0.125744
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000107208, Final residual = 2.28578e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00021485, Final residual = 2.81485e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300002
+maxDeltaT1 = 0.00178653
+deltaT = 0.00138062
+Time = 0.127125
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000106323, Final residual = 2.5192e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000214462, Final residual = 3.18642e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300041
+maxDeltaT1 = 0.0017862
+deltaT = 0.00138062
+Time = 0.128506
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000104273, Final residual = 2.61566e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000212345, Final residual = 3.08399e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300182
+maxDeltaT1 = 0.00178607
+deltaT = 0.00138062
+Time = 0.129886
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000101457, Final residual = 2.5033e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000209796, Final residual = 2.63331e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300278
+maxDeltaT1 = 0.00178612
+deltaT = 0.00138062
+Time = 0.131267
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000102035, Final residual = 2.3851e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000211011, Final residual = 2.84987e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300332
+maxDeltaT1 = 0.00178609
+deltaT = 0.00138062
+Time = 0.132648
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 0.000101421, Final residual = 2.17642e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000210249, Final residual = 3.25489e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300349
+maxDeltaT1 = 0.00178557
+deltaT = 0.00138062
+Time = 0.134028
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.9674e-05, Final residual = 2.79879e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000207546, Final residual = 3.31801e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300331
+maxDeltaT1 = 0.00178524
+deltaT = 0.00138062
+Time = 0.135409
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.69497e-05, Final residual = 3.04248e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000203823, Final residual = 2.64639e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300467
+maxDeltaT1 = 0.00178508
+deltaT = 0.00138062
+Time = 0.136789
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.74156e-05, Final residual = 2.25779e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000204812, Final residual = 3.24163e-16, No Iterations 1
+ExecutionTime = 0.05 s  ClockTime = 0 s
+
+Courant Number = 0.300563
+maxDeltaT1 = 0.00178508
+deltaT = 0.00138062
+Time = 0.13817
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.69989e-05, Final residual = 2.50983e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000205092, Final residual = 3.3494e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300622
+maxDeltaT1 = 0.00178524
+deltaT = 0.00138062
+Time = 0.139551
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.54736e-05, Final residual = 1.87062e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000203312, Final residual = 3.30895e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300648
+maxDeltaT1 = 0.00178475
+deltaT = 0.00138062
+Time = 0.140931
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.30167e-05, Final residual = 2.38302e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000199907, Final residual = 2.61209e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300641
+maxDeltaT1 = 0.00178441
+deltaT = 0.00138062
+Time = 0.142312
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.32483e-05, Final residual = 2.48045e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000201437, Final residual = 2.60449e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300716
+maxDeltaT1 = 0.00178423
+deltaT = 0.00138062
+Time = 0.143693
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.30431e-05, Final residual = 2.71943e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000201099, Final residual = 3.07001e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300811
+maxDeltaT1 = 0.00178419
+deltaT = 0.00138062
+Time = 0.145073
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 9.17442e-05, Final residual = 2.30575e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000198926, Final residual = 3.14637e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300873
+maxDeltaT1 = 0.00178429
+deltaT = 0.00138062
+Time = 0.146454
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.9485e-05, Final residual = 2.13089e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000195053, Final residual = 2.87895e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300905
+maxDeltaT1 = 0.00178403
+deltaT = 0.00138062
+Time = 0.147834
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.9447e-05, Final residual = 2.4791e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000196095, Final residual = 3.15859e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300909
+maxDeltaT1 = 0.00178371
+deltaT = 0.00138062
+Time = 0.149215
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.94154e-05, Final residual = 2.27329e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000196565, Final residual = 3.00261e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.300935
+maxDeltaT1 = 0.00178351
+deltaT = 0.00138062
+Time = 0.150596
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.83224e-05, Final residual = 2.38175e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000195089, Final residual = 3.31562e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301027
+maxDeltaT1 = 0.00178344
+deltaT = 0.00138062
+Time = 0.151976
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.62979e-05, Final residual = 2.78497e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000192012, Final residual = 3.1459e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.30109
+maxDeltaT1 = 0.00178349
+deltaT = 0.00138062
+Time = 0.153357
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.60005e-05, Final residual = 2.16976e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000192504, Final residual = 2.72175e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301127
+maxDeltaT1 = 0.00178342
+deltaT = 0.00138062
+Time = 0.154737
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.61919e-05, Final residual = 2.08248e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000192535, Final residual = 3.28131e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301138
+maxDeltaT1 = 0.0017831
+deltaT = 0.00138062
+Time = 0.156118
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.52977e-05, Final residual = 2.52905e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000190774, Final residual = 3.10067e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301127
+maxDeltaT1 = 0.00178289
+deltaT = 0.00138062
+Time = 0.157499
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.34528e-05, Final residual = 2.26914e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000187368, Final residual = 3.20299e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301216
+maxDeltaT1 = 0.0017828
+deltaT = 0.00138062
+Time = 0.158879
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.28573e-05, Final residual = 2.67674e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000187816, Final residual = 3.15197e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301279
+maxDeltaT1 = 0.00178281
+deltaT = 0.00138062
+Time = 0.16026
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.32238e-05, Final residual = 2.95238e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000188594, Final residual = 3.0108e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301318
+maxDeltaT1 = 0.00178288
+deltaT = 0.00138062
+Time = 0.161641
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.2521e-05, Final residual = 2.88338e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000187515, Final residual = 2.6848e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301335
+maxDeltaT1 = 0.00178257
+deltaT = 0.00138062
+Time = 0.163021
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.0881e-05, Final residual = 2.59489e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000184842, Final residual = 3.06261e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301331
+maxDeltaT1 = 0.00178237
+deltaT = 0.00138062
+Time = 0.164402
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.00184e-05, Final residual = 1.83503e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000184331, Final residual = 3.43146e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301381
+maxDeltaT1 = 0.00178226
+deltaT = 0.00138062
+Time = 0.165782
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.05752e-05, Final residual = 2.50395e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000184779, Final residual = 2.83516e-16, No Iterations 1
+ExecutionTime = 0.06 s  ClockTime = 0 s
+
+Courant Number = 0.301443
+maxDeltaT1 = 0.00178224
+deltaT = 0.00138062
+Time = 0.167163
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 8.0044e-05, Final residual = 2.84799e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000183466, Final residual = 3.14871e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301484
+maxDeltaT1 = 0.00178231
+deltaT = 0.00138062
+Time = 0.168544
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.85619e-05, Final residual = 2.06656e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00018076, Final residual = 2.93352e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301505
+maxDeltaT1 = 0.00178212
+deltaT = 0.00138062
+Time = 0.169924
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.74006e-05, Final residual = 2.26982e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000180313, Final residual = 2.97846e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301507
+maxDeltaT1 = 0.00178192
+deltaT = 0.00138062
+Time = 0.171305
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.80898e-05, Final residual = 2.84801e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000181372, Final residual = 3.29288e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301526
+maxDeltaT1 = 0.0017818
+deltaT = 0.00138062
+Time = 0.172685
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.77626e-05, Final residual = 2.49655e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000180668, Final residual = 3.12499e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301586
+maxDeltaT1 = 0.00178175
+deltaT = 0.00138062
+Time = 0.174066
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.64666e-05, Final residual = 2.58581e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000178367, Final residual = 3.09339e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301628
+maxDeltaT1 = 0.00178179
+deltaT = 0.00138062
+Time = 0.175447
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.50319e-05, Final residual = 2.60893e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000176793, Final residual = 2.86314e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301651
+maxDeltaT1 = 0.00178174
+deltaT = 0.00138062
+Time = 0.176827
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.58721e-05, Final residual = 2.46374e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000177645, Final residual = 2.90498e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301659
+maxDeltaT1 = 0.00178153
+deltaT = 0.00138062
+Time = 0.178208
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.57121e-05, Final residual = 2.66471e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000176761, Final residual = 3.59751e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301653
+maxDeltaT1 = 0.00178141
+deltaT = 0.00138062
+Time = 0.179589
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.45585e-05, Final residual = 2.73784e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000174801, Final residual = 2.86157e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301711
+maxDeltaT1 = 0.00178135
+deltaT = 0.00138062
+Time = 0.180969
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.28244e-05, Final residual = 2.5056e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000173229, Final residual = 2.8403e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301753
+maxDeltaT1 = 0.00178136
+deltaT = 0.00138062
+Time = 0.18235
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.37872e-05, Final residual = 2.9194e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000174665, Final residual = 3.02613e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301778
+maxDeltaT1 = 0.0017814
+deltaT = 0.00138062
+Time = 0.18373
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.38135e-05, Final residual = 2.21539e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000174371, Final residual = 3.50499e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301789
+maxDeltaT1 = 0.00178121
+deltaT = 0.00138062
+Time = 0.185111
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.28388e-05, Final residual = 2.7137e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000172454, Final residual = 3.07031e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301786
+maxDeltaT1 = 0.00178108
+deltaT = 0.00138062
+Time = 0.186492
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.10306e-05, Final residual = 2.35162e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000169785, Final residual = 3.17192e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301821
+maxDeltaT1 = 0.00178101
+deltaT = 0.00138062
+Time = 0.187872
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.19241e-05, Final residual = 3.01222e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000171078, Final residual = 2.90517e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301861
+maxDeltaT1 = 0.00178099
+deltaT = 0.00138062
+Time = 0.189253
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.20717e-05, Final residual = 1.89496e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00017063, Final residual = 3.11319e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301888
+maxDeltaT1 = 0.00178104
+deltaT = 0.00138062
+Time = 0.190633
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.12539e-05, Final residual = 2.70965e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000169364, Final residual = 2.66661e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301902
+maxDeltaT1 = 0.00178093
+deltaT = 0.00138062
+Time = 0.192014
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.95787e-05, Final residual = 3.24858e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000166667, Final residual = 3.05662e-16, No Iterations 1
+ExecutionTime = 0.07 s  ClockTime = 0 s
+
+Courant Number = 0.301903
+maxDeltaT1 = 0.0017808
+deltaT = 0.00138062
+Time = 0.193395
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.01634e-05, Final residual = 2.71548e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000168478, Final residual = 3.16048e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.301916
+maxDeltaT1 = 0.00178072
+deltaT = 0.00138062
+Time = 0.194775
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 7.0471e-05, Final residual = 2.52631e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000168595, Final residual = 2.98404e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.301956
+maxDeltaT1 = 0.00178069
+deltaT = 0.00138062
+Time = 0.196156
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.98397e-05, Final residual = 3.10245e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000167071, Final residual = 3.01279e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.301983
+maxDeltaT1 = 0.00178071
+deltaT = 0.00138062
+Time = 0.197537
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.83168e-05, Final residual = 2.61095e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000164092, Final residual = 3.34644e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.301999
+maxDeltaT1 = 0.00178069
+deltaT = 0.00138062
+Time = 0.198917
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.85954e-05, Final residual = 2.78864e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00016502, Final residual = 2.54171e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302003
+maxDeltaT1 = 0.00178056
+deltaT = 0.00138062
+Time = 0.200298
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.9022e-05, Final residual = 2.87261e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000165209, Final residual = 2.78579e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302
+maxDeltaT1 = 0.00178048
+deltaT = 0.00138062
+Time = 0.201678
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.85215e-05, Final residual = 2.83452e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000164376, Final residual = 3.35566e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302039
+maxDeltaT1 = 0.00178044
+deltaT = 0.00138062
+Time = 0.203059
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.7134e-05, Final residual = 3.10939e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000161965, Final residual = 2.61652e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302066
+maxDeltaT1 = 0.00178044
+deltaT = 0.00138062
+Time = 0.20444
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.71068e-05, Final residual = 2.70447e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000162728, Final residual = 3.4248e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302083
+maxDeltaT1 = 0.00178049
+deltaT = 0.00138062
+Time = 0.20582
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.76857e-05, Final residual = 2.61661e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000163247, Final residual = 3.23618e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.30209
+maxDeltaT1 = 0.00178036
+deltaT = 0.00138062
+Time = 0.207201
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.73401e-05, Final residual = 2.83694e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000162118, Final residual = 2.74465e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302087
+maxDeltaT1 = 0.00178027
+deltaT = 0.00138062
+Time = 0.208581
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.6115e-05, Final residual = 2.78206e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000159505, Final residual = 2.9017e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302111
+maxDeltaT1 = 0.00178023
+deltaT = 0.00138062
+Time = 0.209962
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.57738e-05, Final residual = 2.82201e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00015937, Final residual = 3.18235e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302137
+maxDeltaT1 = 0.00178022
+deltaT = 0.00138062
+Time = 0.211343
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.6468e-05, Final residual = 2.85369e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000160218, Final residual = 3.22712e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302155
+maxDeltaT1 = 0.00178025
+deltaT = 0.00138062
+Time = 0.212723
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.62429e-05, Final residual = 3.38979e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000159734, Final residual = 3.53218e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302164
+maxDeltaT1 = 0.00178019
+deltaT = 0.00138062
+Time = 0.214104
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.51536e-05, Final residual = 2.66872e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00015763, Final residual = 2.70274e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302165
+maxDeltaT1 = 0.0017801
+deltaT = 0.00138062
+Time = 0.215485
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.45055e-05, Final residual = 3.02387e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000157301, Final residual = 2.82318e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302173
+maxDeltaT1 = 0.00178005
+deltaT = 0.00138062
+Time = 0.216865
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.53455e-05, Final residual = 2.66968e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000158231, Final residual = 3.11727e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.3022
+maxDeltaT1 = 0.00178003
+deltaT = 0.00138062
+Time = 0.218246
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.52708e-05, Final residual = 3.42122e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000157498, Final residual = 2.81277e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302218
+maxDeltaT1 = 0.00178005
+deltaT = 0.00138062
+Time = 0.219626
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.43278e-05, Final residual = 2.85599e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000155256, Final residual = 2.99105e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302228
+maxDeltaT1 = 0.00178005
+deltaT = 0.00138062
+Time = 0.221007
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.33658e-05, Final residual = 2.84167e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000154032, Final residual = 2.98486e-16, No Iterations 1
+ExecutionTime = 0.08 s  ClockTime = 0 s
+
+Courant Number = 0.302231
+maxDeltaT1 = 0.00177996
+deltaT = 0.00138062
+Time = 0.222388
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.43151e-05, Final residual = 3.50216e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000155494, Final residual = 2.84935e-16, No Iterations 1
+ExecutionTime = 0.09 s  ClockTime = 0 s
+
+Courant Number = 0.302228
+maxDeltaT1 = 0.00177991
+deltaT = 0.00138062
+Time = 0.223768
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.43589e-05, Final residual = 3.43601e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000155337, Final residual = 3.09716e-16, No Iterations 1
+ExecutionTime = 0.09 s  ClockTime = 0 s
+
+Courant Number = 0.302254
+maxDeltaT1 = 0.00177988
+deltaT = 0.00138062
+Time = 0.225149
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.35349e-05, Final residual = 3.00078e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000153591, Final residual = 2.71525e-16, No Iterations 1
+ExecutionTime = 0.09 s  ClockTime = 0 s
+
+Courant Number = 0.302272
+maxDeltaT1 = 0.00177988
+deltaT = 0.00138062
+Time = 0.22653
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.22867e-05, Final residual = 2.69904e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000152117, Final residual = 3.15662e-16, No Iterations 1
+ExecutionTime = 0.09 s  ClockTime = 0 s
+
+Courant Number = 0.302283
+maxDeltaT1 = 0.00177991
+deltaT = 0.00138062
+Time = 0.22791
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.33716e-05, Final residual = 2.729e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000153454, Final residual = 3.16091e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302288
+maxDeltaT1 = 0.00177985
+deltaT = 0.00138062
+Time = 0.229291
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.35583e-05, Final residual = 3.11701e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000153137, Final residual = 2.83308e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302286
+maxDeltaT1 = 0.00177979
+deltaT = 0.00138062
+Time = 0.230671
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.28686e-05, Final residual = 3.39942e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000151273, Final residual = 3.10403e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302301
+maxDeltaT1 = 0.00177975
+deltaT = 0.00138062
+Time = 0.232052
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.14026e-05, Final residual = 3.44653e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000149094, Final residual = 3.29734e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302318
+maxDeltaT1 = 0.00177974
+deltaT = 0.00138062
+Time = 0.233433
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.2501e-05, Final residual = 3.49504e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000150979, Final residual = 3.0791e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.30233
+maxDeltaT1 = 0.00177976
+deltaT = 0.00138062
+Time = 0.234813
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.27994e-05, Final residual = 3.27091e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000151157, Final residual = 3.06538e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302336
+maxDeltaT1 = 0.00177975
+deltaT = 0.00138062
+Time = 0.236194
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.22291e-05, Final residual = 3.85298e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.00014978, Final residual = 3.13797e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302336
+maxDeltaT1 = 0.00177969
+deltaT = 0.00138062
+Time = 0.237574
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.0883e-05, Final residual = 3.96084e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000147147, Final residual = 2.84346e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302341
+maxDeltaT1 = 0.00177965
+deltaT = 0.00138062
+Time = 0.238955
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.16974e-05, Final residual = 3.02332e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000148883, Final residual = 3.23263e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302359
+maxDeltaT1 = 0.00177964
+deltaT = 0.00138062
+Time = 0.240336
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.21328e-05, Final residual = 3.41014e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000148982, Final residual = 2.75223e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302371
+maxDeltaT1 = 0.00177964
+deltaT = 0.00138062
+Time = 0.241716
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.16778e-05, Final residual = 3.95081e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000147504, Final residual = 3.08931e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302378
+maxDeltaT1 = 0.00177967
+deltaT = 0.00138062
+Time = 0.243097
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.0418e-05, Final residual = 2.97497e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000145034, Final residual = 3.01024e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.30238
+maxDeltaT1 = 0.00177961
+deltaT = 0.00138062
+Time = 0.244478
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.09065e-05, Final residual = 3.80458e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000146635, Final residual = 2.751e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302377
+maxDeltaT1 = 0.00177957
+deltaT = 0.00138062
+Time = 0.245858
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.14392e-05, Final residual = 3.269e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000147163, Final residual = 2.93687e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302394
+maxDeltaT1 = 0.00177955
+deltaT = 0.00138062
+Time = 0.247239
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.10846e-05, Final residual = 3.28652e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000146152, Final residual = 2.60937e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302406
+maxDeltaT1 = 0.00177955
+deltaT = 0.00138062
+Time = 0.248619
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 5.98998e-05, Final residual = 3.39093e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000143756, Final residual = 3.24257e-16, No Iterations 1
+ExecutionTime = 0.1 s  ClockTime = 0 s
+
+Courant Number = 0.302414
+maxDeltaT1 = 0.00177956
+deltaT = 0.00138062
+Time = 0.25
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for rhoUx, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Ux, Initial residual = 6.00266e-05, Final residual = 3.67357e-17, No Iterations 1
+diagonal:  Solving for rhoE, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for e, Initial residual = 0.000144488, Final residual = 3.29851e-16, No Iterations 1
+ExecutionTime = 0.11 s  ClockTime = 0 s
+
+End
+

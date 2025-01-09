@@ -1,0 +1,42 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _9bfe8264-20241212 OPENFOAM=2406 patch=241212 version=2406
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setFields
+Date   : Jan 09 2025
+Time   : 11:49:14
+Host   : fv-az1344-607
+PID    : 9042
+I/O    : uncollated
+Case   : /home/runner/work/VnV/VnV/SodProblem/QGDFoam/400CPL
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting volume field default values
+    - set internal values of volScalarField: T = 2
+    - set internal values of volScalarField: p = 0.1
+    - set internal values of volVectorField: U = (0 0 0)
+
+Setting field region values
+
+    Adding cells with centre within boxes 1((-1 -1 -1) (0.5 1 1))
+    Selected 200/400 cells
+    - set internal values of volScalarField: T = 2.5
+    - set internal values of volScalarField: p = 1
+
+End
+
