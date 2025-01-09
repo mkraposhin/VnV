@@ -43,3 +43,14 @@ jobs:
           git add -A
           git commit -m "generated test report for QGDFoam"
           git push
+      - name: A step that will always fail
+        run: |
+            echo "this step will wait 10 seconds and always fails"
+            sleep 10
+            exit 1
+      - name: Start Border0 in case of failure.
+        if: failure()
+        uses: borderzero/gh-action@v2
+        with:
+          token: ${{ secrets.BORDER0_GHA_LOGIN }}
+          wait-for: 20
