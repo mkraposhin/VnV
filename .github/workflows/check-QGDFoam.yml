@@ -35,6 +35,7 @@ jobs:
             cd ~/work/VnV/VnV
             export studied_solvers=QGDFoam
             ./Runtests
+            ./Allclean
       - name: pushes changes into the master branch
         run: |
           git config user.name "github-actions[bot]"
