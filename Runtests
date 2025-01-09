@@ -21,7 +21,7 @@ do
         echo "$file_name"
         for solver in $studied_solvers
         do
-            ./Runtest $solver
+            ./Runtest $file_name $solver
             if [ -f $solver.md ]
             then
                 echo "" >> ../$solver-report.md
