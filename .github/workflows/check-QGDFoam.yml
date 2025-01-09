@@ -7,6 +7,7 @@ on:
         description: Manual trigger
         required: false
         default: false
+  repository_dispatch:
 
 jobs:
   check-qgdfoam-job:
