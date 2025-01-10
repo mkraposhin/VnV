@@ -1,0 +1,46 @@
+name: checks pimpleCentralFoam solver
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: Manual trigger
+        required: false
+        default: false
+  repository_dispatch:
+      types: [check-pimpleCentralFoam-dev]
+
+jobs:
+  check-qgdfoam-job:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gerlero/setup-openfoam@v1
+        with:
+          openfoam-version: 2412
+      - run: git clone -b dev https://github.com/mkraposhin/hybridCentralSolvers.git.git ~/work/VnV/hybridCentralSolvers
+      - run: |
+          /usr/bin/openfoam2412
+          cd  ~/work/VnV/hybridCentralSolvers
+          ./SwitchDest
+          ./SwitchDest USER
+          mkdir -p $FOAM_USER_APPBIN
+          mkdir -p $FOAM_USER_LIBBIN
+          export > cenv.log
+          ./Allwmake
+          cd ../
+      - name: runs tests
+        run: |
+            /usr/bin/openfoam2412
+            cd ~/work/VnV/VnV
+            export studied_solvers=hybridCentralSolvers
+            ./Runtests
+            ./Allclean
+      - name: pushes changes into the master branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git_status=`git status -s`
+          if [ "$git_status" != "" ]; then git add -A; git commit -m "generated test report for pimpleCentralFoam"; git push; fi
