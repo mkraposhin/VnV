@@ -11,7 +11,7 @@ on:
       types: [check-all-hybrid-dev]
 
 jobs:
-  check-pimplecentralfoam-job:
+  check-all-hybrid-job:
     permissions:
       contents: write
     runs-on: ubuntu-latest
