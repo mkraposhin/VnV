@@ -8,7 +8,7 @@ on:
         required: false
         default: false
   repository_dispatch:
-      types: [check-pimpleCentralFoam-dev]
+      types: [check-all-hybrid-dev]
 
 jobs:
   check-pimplecentralfoam-job:
