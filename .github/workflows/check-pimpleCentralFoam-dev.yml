@@ -11,7 +11,7 @@ on:
       types: [check-pimpleCentralFoam-dev]
 
 jobs:
-  check-qgdfoam-job:
+  check-pimplecentralfoam-job:
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
         run: |
             /usr/bin/openfoam2412
             cd ~/work/VnV/VnV
-            export studied_solvers=hybridCentralSolvers
+            export studied_solvers=pimpleCentralFoam
             ./Runtests
             ./Allclean
       - name: pushes changes into the master branch
