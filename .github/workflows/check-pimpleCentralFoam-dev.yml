@@ -29,8 +29,9 @@ jobs:
           mkdir -p $FOAM_USER_APPBIN
           mkdir -p $FOAM_USER_LIBBIN
           export > cenv.log
+          cd Sources
           ./Allwmake
-          cd ../
+          cd ../../
       - name: runs tests
         run: |
             /usr/bin/openfoam2412
