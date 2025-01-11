@@ -30,13 +30,13 @@ jobs:
           mkdir -p $FOAM_USER_LIBBIN
           export > cenv.log
           cd Sources
-          ./Allwmake
+          ./Allwmaker
           cd ../../
       - name: runs tests
         run: |
             /usr/bin/openfoam2412
             cd ~/work/VnV/VnV
-            export studied_solvers="pimpleCentralFoam rhoPimpleCentralFoam reactingPimpleCentralFoam reactingLagrangianPimpleCentralFoam twoPhaseMixingCentralFoam vofTwoPhaseCentralFoam"
+            export studied_solvers="pimpleCentralFoam rhoPimpleCentralFoam reactingPimpleCentralFoam reactingLagrangianPimpleCentralFoam twoPhaseMixingCentralFoam vofTwoPhaseCentralFoam interTwoPhaseCentralFoam pimpleCentralDyMFoam reactingPimpleCentralDyMFoam twoPhaseMixingCentralDyMFoam chtMultiRegionCentralFoam"
             ./Runtests
             ./Allclean
       - name: pushes changes into the master branch
