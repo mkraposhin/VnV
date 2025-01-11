@@ -1,0 +1,7 @@
+application     pimpleCentralDyMFoam;
+
+CourantType     cellCourant;
+
+maxCo           0.3;
+
+// ************************************************************************* //

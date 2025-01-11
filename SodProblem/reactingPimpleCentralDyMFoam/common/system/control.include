@@ -1,0 +1,7 @@
+application     reactingPimpleCentralDyMFoam;
+
+CourantType     cellCourant;
+
+maxCo           0.3;
+
+// ************************************************************************* //
