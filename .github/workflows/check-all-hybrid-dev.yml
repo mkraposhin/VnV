@@ -30,7 +30,7 @@ jobs:
           mkdir -p $FOAM_USER_LIBBIN
           export > cenv.log
           cd Sources
-          ./Allwmaker
+          ./Allwmake
           cd ../../
       - name: runs tests
         run: |
