@@ -44,4 +44,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git_status=`git status -s`
-          if [ "$git_status" != "" ]; then git add -A; git commit -m "generated test report for pimpleCentralFoam"; git push; fi
+          if [ "$git_status" != "" ]; then git add -A; git commit -m "generated test report for pimpleCentralFoam"; git push;
+          else echo "nothing to push"; fi
