@@ -1,7 +1,1 @@
-application     reactingPimpleCentralFoam;
-
-maxCo           0.25;
-
-CourantType     cellCourant;
-
-// ************************************************************************* //
+../../common/system/control.include
