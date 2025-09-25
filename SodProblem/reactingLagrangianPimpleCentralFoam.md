@@ -3,6 +3,6 @@ SodProblem
 
 |solver|mesh level|result|rho|U |p |e |
 |------|----------|------|---|--|--|--|
-|reactingLagrangianPimpleCentralFoam|100CPL|FAILED||
-|reactingLagrangianPimpleCentralFoam|200CPL|FAILED||
-|reactingLagrangianPimpleCentralFoam|400CPL|FAILED||
+|reactingLagrangianPimpleCentralFoam|100CPL|PASSED|0.01217903374999999|0.02558475823509766|0.010657181250000002|0.047648361249999986|
+|reactingLagrangianPimpleCentralFoam|200CPL|PASSED|0.007411918749999991|0.013771956276538185|0.006072038749999992|0.02975574625000002|
+|reactingLagrangianPimpleCentralFoam|400CPL|PASSED|0.0045520362500000066|0.007381110376642976|0.0034377412500000005|0.018946361249999967|
