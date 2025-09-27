@@ -32,3 +32,13 @@ The wish list of cases to check is maintained using the [issues](https://github.
             200CPL/
             400CPL/
     
+## Available cases
+
+Next cases are available (uploaded to the repository):
+
+- the Sod's shock tube
+- the two shocks problem
+- the two gases diffusion case
+- the forward step
+- the Sod's problem for two gases
+- a 1D reacting tube
