@@ -24,8 +24,8 @@ do
             ./Runtest $file_name $solver
             if [ -f $solver.md ]
             then
-                echo "" >> ../$solver-report.md
-                cat $solver.md >> ../$solver-report.md
+                echo "" >> ../reports/$solver-report.md
+                cat $solver.md >> ../reports/$solver-report.md
             fi
         done
         cd ../
