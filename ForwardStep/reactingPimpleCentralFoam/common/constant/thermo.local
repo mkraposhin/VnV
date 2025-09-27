@@ -1,0 +1,15 @@
+thermoType
+{
+    type            hePsiThermo;
+    mixture         reactingMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+inertSpecie mixture;
+chemistryReader foamChemistryReader;
+foamChemistryFile "$FOAM_CASE/constant/reactions";
+foamChemistryThermoFile "$FOAM_CASE/constant/thermo.compressibleGas";
