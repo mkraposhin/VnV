@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Samples near-patch volume fields within an input distance range.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+nearWallFields
+{
+    // Mandatory entries
+    type            nearWallFields;
+    libs            (fieldFunctionObjects);
+
+    fields
+    (
+        (p pNear) //(<field1> <outField1>)
+        (U UNear)
+        (T TNear)
+        (rho rhoNear)
+        (Ma MaNear)
+        (f_Bilger f_BilgerNear)
+        (OH OHNear)
+        (dQ dQNear)
+        (mag(rhoSchlieren) mag(rhoSchlieren)Near)
+        (mag(pSchlieren) mag(pSchlieren)Near)
+        (wallShearStress wallShearStressNear)
+        (wallHeatFlux wallHeatFluxNear)
+    );
+
+    patches         ( lowerWall ); //( "*.Wall*" "strut.*" ); //(wall1 "(wall2|wall3)");
+    distance        1e-6; //Wall-normal distance from patch to sample
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

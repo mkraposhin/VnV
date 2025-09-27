@@ -1,0 +1,157 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes the spatial minimum and maximum extents of an input field.
+ 
+    The extents are derived from the bound box limits after identifying the
+    locations where field values exceed the user-supplied threshold value.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+Note
+    For non-scalar fields, the magnitude of the field is employed and compared
+    to the value of \c threshold.
+
+    使用 FOcolumnAverage 时还需要注意，在指定 patches 从而确定的法线方向求取的是算术平均值，
+    其数值浓度已经除以了法线方向的网格数（网格数的具体数值可以通过 blockMesh 日志获得）。
+    要获取视线积分（求和）的话，需要在 paraview 中乘以一个倍数（即，法线方向网格数），
+    或者通过 OpenFOAM 自带的 exprField 来乘以倍数并输出。
+    不管乘不乘以倍数，OH 和 OHMean 等场的数值浓度都已改变，
+    那么 Lift off flame 中， 0.001 的阈值也需要根据法线方向的网格数（倍数）来改变!
+    所以，FOfieldExtents 中定义求解的 lift-off length 准确与否，需要重新考量验证，
+    最好还是根据云图重新测量计算！
+
+\*---------------------------------------------------------------------------*/
+
+//Must read above -> Note!!!
+//FOfieldExtents must after FOcolumnAverage!
+
+//lift-off length
+LOL_OH
+{
+    // Mandatory entries (unmodifiable)
+    type                fieldExtents;
+    libs                (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches             (); //(<patch1> <patch2> ... <patchN>);
+    fields              ( OH ); //(<field1> ... <fieldN>);
+    threshold           0.001;
+
+    // Optional entries (runtime modifiable)
+    internalField       true;
+    referencePosition   ( 0.0 0.0 0.0 );
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //must after tStartAvg
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+LOL_OHMean
+{
+    // Mandatory entries (unmodifiable)
+    type                fieldExtents;
+    libs                (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches             (); //(<patch1> <patch2> ... <patchN>);
+    fields              ( OHMean ); //(<field1> ... <fieldN>);
+    threshold           0.001;
+
+    // Optional entries (runtime modifiable)
+    internalField       true;
+    referencePosition   ( 0.0 0.0 0.0 );
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //must after tStartAvg
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+LOL_OHchemiluminescence
+{
+    // Mandatory entries (unmodifiable)
+    type                fieldExtents;
+    libs                (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches             (); //(<patch1> <patch2> ... <patchN>);
+    fields              ( columnAverage(OH) ); //(<field1> ... <fieldN>);
+    threshold           0.001;
+
+    // Optional entries (runtime modifiable)
+    internalField       true;
+    referencePosition   ( 0.0 0.0 0.0 );
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //must after tStartAvg and FOcolumnAverage(calculate Line Of Sight & spanwise average)
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+LOL_OHMeanchemiluminescence
+{
+    // Mandatory entries (unmodifiable)
+    type                fieldExtents;
+    libs                (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches             (); //(<patch1> <patch2> ... <patchN>);
+    fields              ( columnAverage(OHMean) ); //(<field1> ... <fieldN>);
+    threshold           0.001;
+
+    // Optional entries (runtime modifiable)
+    internalField       true;
+    referencePosition   ( 0.0 0.0 0.0 );
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //must after tStartAvg and FOcolumnAverage(calculate Line Of Sight & spanwise average)
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculates the Bilger mixture-fraction field (i.e.
+    \f$f_{\mathrm{Bilger}}\f$) based on the elemental composition
+    of the mixture. Elements \c C, \c H, \c S and \c O are considered.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+BilgerMixtureFraction
+{
+    // Mandatory entries (unmodifiable)
+    type            BilgerMixtureFraction;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    fuel
+    {
+        // Optional entries (runtime modifiable)
+        fractionBasis    mass; //mole
+
+        // Conditional mandatory entries (runtime modifiable)
+        H2               1.0;
+    }
+
+    oxidiser
+    {
+        // Optional entries (runtime modifiable)
+        fractionBasis    mass; //mole
+
+        // Conditional mandatory entries (runtime modifiable)
+        O2               0.232;
+        N2               0.768;
+        //H2O              0.032;
+    }
+
+    // Optional entries
+    //phase           "";
+    result          f_Bilger;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

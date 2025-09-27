@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes the values and locations of field minima and maxima.
+    These are good indicators of calculation performance, e.g. to confirm that
+    predicted results are within expected bounds, or how well a case is
+    converging.
+
+    Multiple fields can be processed, where for rank > 0 primitives, e.g.
+    vectors and tensors, the extrema can be calculated per component, or by
+    magnitude.  In addition, spatial location and local processor index are
+    included in the output.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+minMax
+{
+    // Mandatory entries (unmodifiable)
+    type        fieldMinMax;
+    libs        (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    mode        magnitude; //Calculation mode: magnitude or component
+    fields      ( U p T); //(<field1> <field2> ... <fieldN>);
+
+    // Optional entries (runtime modifiable)
+    location    true; //Write location of the min/max value
+
+    // Optional (inherited) entries
+    writePrecision  16;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //writeTime;
+    executeInterval 1;
+    writeControl    timeStep; //writeTime;
+    writeInterval   1;
+}
+
+
+// ************************************************************************* //

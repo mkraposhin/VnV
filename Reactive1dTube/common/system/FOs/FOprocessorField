@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes a scalar field whose value is the local processor ID.  The output
+    field name is \c processorID.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func processorField
+    \endverbatim
+
+\*---------------------------------------------------------------------------*/
+
+processorField
+{
+    // Mandatory entries (unmodifiable)
+    type            processorField;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval 1; //-1;
+    writeControl    writeTime; //onEnd
+    writeInterval   1; //-1;
+}
+
+
+// ************************************************************************* //

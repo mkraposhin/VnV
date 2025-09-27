@@ -1,0 +1,51 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    The volFieldValue function object provides options to 
+    manipulate volume field data into derived forms, 
+    e.g. to report summations, averages and extrema.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+volFieldValue_HRR
+{
+    // Mandatory entries (unmodifiable)
+    type            volFieldValue;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    fields          (dQ);
+    operation       volAverage;
+    regionType      all;
+
+    // Optional entries (runtime modifiable)
+    postOperation   none; //none, mag, sqrt
+    weightField     none;
+
+    // Optional (inherited) entries
+    writeFields     false;
+    scalingFactor   1.0;
+    writePrecision  16;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    timeStep;
+    writeInterval   1;
+}
+
+
+// ************************************************************************* //

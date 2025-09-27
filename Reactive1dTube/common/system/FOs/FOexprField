@@ -1,0 +1,119 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Function object that generates or modifies a field based on expressions.
+
+    The generated fields are normally stored on the object-registry, 
+    which makes them available to other parts of OpenFOAM. 
+    Of course, this can also be switched off. 
+    For example, to have a simple generator of additional post-processing fields 
+    simply avoid storing the result and only generate on write:
+
+Note
+    The useNamePrefix entry is always ignored for the modify action.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+// readFields of writeObjects thermo:mu
+readFields1
+{
+    // Mandatory entries
+    type            readFields;
+    libs            (fieldFunctionObjects);
+
+    fields          (thermo:mu);
+
+    // Optional entries
+    readOnStart     true;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex; //must after $tStartAvg, $tTurFields and $tWriteObj
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+// rename thermo:mu to mu for next correct calculation
+mag1
+{
+    // Mandatory entries
+    type            mag;
+    libs            (fieldFunctionObjects);
+
+    field           thermo:mu;
+    result          mu;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex; //must after $tStartAvg, $tTurFields and $tWriteObj
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+// calculate nu by mu / rho via exprField function
+exprField1
+{
+    // Mandatory entries
+    type            exprField;
+    libs            (fieldFunctionObjects);
+
+    field           nu;
+    //readFields      ( thermo:mu );
+    expression      "mu / rho";
+    //expression      "p + 0.5*(rho*magSqr(U))";
+    
+    action          new; //none; modify;
+    autowrite       true;
+    store           true;
+    useNamePrefix   false;
+
+    //fieldMask       "(mag(pos()) < 0.05) && (pos().y() > 0) || cellZone(inlet)";
+    dimensions      [ area/s ]; //dimViscosity->no this
+
+    // Inherited entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex; //must after $tStartAvg, $tTurFields and $tWriteObj
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+/*
+    // Modify an existing field
+    name2
+    {
+        type    exprField;
+        libs    (fieldFunctionObjects);
+        field   pTotal;
+        action  modify;
+
+        // Static pressure only in these regions
+        fieldMask   "(mag(pos()) < 0.05) && (pos().y() > 0)";
+        expression  "p";
+    }
+*/
+
+
+// ************************************************************************* //

@@ -1,0 +1,182 @@
+#!/bin/bash
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+#
+# Results taken from:
+#   Ferrer, P. J. M., Buttay, R., Lehnasch, G., & Mura, A. (2014)
+#   "A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers"
+#   Computers & Fluids, 89, 88-110
+#
+# References:
+#   Fedkiw, Ronald P., Barry Merriman, and Stanley Osher. (1997)
+#   "High accuracy numerical methods for thermally perfect gas flows with chemistry"
+#   Journal of Computational Physics 132.2, 175-190
+#------------------------------------------------------------------------------
+
+# Function to create EPS plot for Temperature
+createEpsT()
+{
+
+    gnuplot<<EOF
+    set terminal postscript eps enhanced color font 'Helvetica,40' linewidth 2\
+        dl 8.0
+    set output "reactingPimpleCentralFoam_reactiveShockTube_validation_T.eps"
+    set xlabel "X-Position [m]"
+    set ylabel "Temperature [K]"
+    set grid
+    set key right bottom
+    set size 2,2
+    set autoscale
+    set xrange [0:0.12]
+    plot    "$1" using 1:2 title 'Exact=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$2" using 1:2 title 'Exact=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$3" using 1:2 title 'Exact=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$4" using 1:3 title 'reactingPimpleCentralFoam=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$5" using 1:3 title 'reactingPimpleCentralFoam=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$6" using 1:3 title 'reactingPimpleCentralFoam=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red'
+EOF
+}
+
+# Function to create EPS plot for X-Velocity
+createEpsUx()
+{
+
+    gnuplot<<EOF
+    set terminal postscript eps enhanced color font 'Helvetica,40' linewidth 2\
+        dl 8.0
+    set output "reactingPimpleCentralFoam_reactiveShockTube_validation_Ux.eps"
+    set xlabel "X-Position [m]"
+    set ylabel "X-Velocity [m/s]"
+    set grid
+    set key right bottom
+    set size 2,2
+    set autoscale
+    set xrange [0:0.12]
+    plot    "$1" using 1:2 title 'Exact=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$2" using 1:2 title 'Exact=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$3" using 1:2 title 'Exact=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$4" using 1:4 title 'reactingPimpleCentralFoam=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$5" using 1:4 title 'reactingPimpleCentralFoam=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$6" using 1:4 title 'reactingPimpleCentralFoam=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red'
+EOF
+}
+
+# Function to create EPS plot for the Ratio of specific heat capacities: Gamma
+createEpsGamma()
+{
+
+    gnuplot<<EOF
+    set terminal postscript eps enhanced color font 'Helvetica,40' linewidth 2\
+        dl 8.0
+    set output "reactingPimpleCentralFoam_reactiveShockTube_validation_Gamma.eps"
+    set xlabel "X-Position [m]"
+    set ylabel "γ [-]"
+    set grid
+    set key right bottom
+    set size 2,2
+    set autoscale
+    set xrange [0:0.12]
+    plot    "$1" using 1:2 title 'Exact=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$2" using 1:2 title 'Exact=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$3" using 1:2 title 'Exact=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$4" using 1:6 title 'reactingPimpleCentralFoam=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$5" using 1:6 title 'reactingPimpleCentralFoam=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$6" using 1:6 title 'reactingPimpleCentralFoam=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red'
+EOF
+}
+
+# Function to create EPS plot for Mass fraction of H
+createEpsYH()
+{
+
+    gnuplot<<EOF
+    set terminal postscript eps enhanced color font 'Helvetica,40' linewidth 2\
+        dl 8.0
+    set output "reactingPimpleCentralFoam_reactiveShockTube_validation_YH.eps"
+    set xlabel "X-Position [m]"
+    set ylabel "Y_H [-]"
+    set grid
+    set key right bottom
+    set size 2,2
+    set autoscale
+    set xrange [0:0.12]
+    plot    "$1" using 1:2 title 'Exact=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$2" using 1:2 title 'Exact=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$3" using 1:2 title 'Exact=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'black',\
+            "$4" using 1:2 title 'reactingPimpleCentralFoam=170'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$5" using 1:2 title 'reactingPimpleCentralFoam=190'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red',\
+            "$6" using 1:2 title 'reactingPimpleCentralFoam=230'\
+                with lines lt 1 linewidth 2 linecolor rgb 'red'
+EOF
+}
+
+
+#------------------------------------------------------------------------------
+
+# test if gnuplot exists on the system
+if ! which gnuplot > /dev/null 2>&1
+then
+    echo "gnuplot not found - skipping graph creation" >&2
+    exit 1
+fi
+
+
+#------------------------------------------------------------------------------
+
+# paths to data
+validationDataRoot=./validationData
+
+TVal170="$validationDataRoot/T_t=170us.csv"
+TVal190="$validationDataRoot/T_t=190us.csv"
+TVal230="$validationDataRoot/T_t=230us.csv"
+
+UxVal170="$validationDataRoot/Ux_t=170us.csv"
+UxVal190="$validationDataRoot/Ux_t=190us.csv"
+UxVal230="$validationDataRoot/Ux_t=230us.csv"
+
+GammaVal170="$validationDataRoot/Gamma_t=170us.csv"
+GammaVal190="$validationDataRoot/Gamma_t=190us.csv"
+GammaVal230="$validationDataRoot/Gamma_t=230us.csv"
+
+YHVal170="$validationDataRoot/YH_t=170us.csv"
+YHVal190="$validationDataRoot/YH_t=190us.csv"
+YHVal230="$validationDataRoot/YH_t=230us.csv"
+
+reactingPimpleCentralFoamVal170="../postProcessing/sample/0.00017/Centerline*"
+reactingPimpleCentralFoamVal190="../postProcessing/sample/0.00019/Centerline*"
+reactingPimpleCentralFoamVal230="../postProcessing/sample/0.00023/Centerline*"
+
+
+#------------------------------------------------------------------------------
+
+# Create EPS plots
+createEpsT $TVal170 $TVal190 $TVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
+createEpsUx $UxVal170 $UxVal190 $UxVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
+createEpsGamma $GammaVal170 $GammaVal190 $GammaVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
+createEpsYH $YHVal170 $YHVal190 $YHVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
+
+echo Done

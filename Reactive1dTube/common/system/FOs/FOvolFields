@@ -1,0 +1,156 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description: vorticity
+    Computes the vorticity, the curl of the velocity.
+ 
+    \f[
+        \vec \omega = \nabla \times \vec U
+    \f]
+ 
+    where
+    \vartable
+        \vec \omega   | Vorticity vector    [1/s]
+        \vec U        | Velocity vector     [m/s]
+    \endvartable
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func vorticity
+    \endverbatim
+-------------------------------------------------------------------------------
+Description: Q
+    Computes the second invariant of
+    the velocity gradient tensor \f$[s^{-2}]\f$.
+
+    \f[
+        \vec Q = \frac{1}{2}
+        [ (tr (\nabla \vec U) )^2
+        - tr (\nabla \vec U \cdot \nabla \vec U) ]
+    \f]
+
+    where
+    \vartable
+        \vec U       | velocity [m/s]
+    \endvartable
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func Q
+    \endverbatim
+-------------------------------------------------------------------------------
+Description: Lambda2
+    Computes the second largest eigenvalue of the sum of the square of
+    the symmetrical and anti-symmetrical parts of the velocity gradient tensor.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func Lambda2
+    \endverbatim
+-------------------------------------------------------------------------------
+Description: CourantNo
+    Computes the Courant number field for time-variant simulations.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func CourantNo
+    \endverbatim
+\*---------------------------------------------------------------------------*/
+
+vorticity //omega
+{
+    // Mandatory entries
+    type            vorticity;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    field           U;
+    //result          vorticityField;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+Q
+{
+    // Mandatory entries
+    type            Q;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    field           U;
+    //result          QField;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+Lambda2
+{
+    // Mandatory entries
+    type            Lambda2;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    field           U;
+    //result          Lambda2Field;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+CourantNo
+{
+    // Mandatory entries
+    type            CourantNo;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries
+    rho             rho;
+
+    // Optional (inherited) entries
+    field           phi;
+    //result          CourantNumberField;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

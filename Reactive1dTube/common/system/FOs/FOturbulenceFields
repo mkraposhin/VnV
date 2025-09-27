@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculates specified turbulence fields and stores it on the database.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+turbulenceFields
+{
+    // Mandatory entries (unmodifiable)
+    type            turbulenceFields;
+    libs            (fieldFunctionObjects);
+ 
+    // Mandatory entries (runtime modifiable)
+    // Either field or fields entries
+    fields
+    (
+        k
+        epsilon
+        omega
+        R
+        L
+        I
+        nuTilda
+
+        mut
+        muEff
+        alphat
+        alphaEff
+        devRhoReff
+
+        //fd 
+        //LESRegion
+    );
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields; //must before FODESModelRegions and FOresolutionIndex in controlDict functions
+    timeEnd         $tEndTime; //onEnd
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;  
+}
+
+
+// ************************************************************************* //

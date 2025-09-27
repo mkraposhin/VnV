@@ -1,0 +1,43 @@
+conda activate ct2foam_env
+cd chemkin/
+ct2foam --input H2_AR.yaml --output foam --Tmid 1000 --Tlow 200 --Thigh 6000 --plot
+conda deactivate
+
+#根据机理文件温度范围修改 ct2foam 的 Tmid，Tlow，Thigh，并使用 pip install -e . 开发者模式重新编译安装
+python -m pyjac --lang c --last_species AR --input H2_AR.cti
+pyjac2foam.sh --mechanism H2_AR.cti --input out --compile
+
+conda activate ct-env
+yaml2ck H2_AR.yaml --mechanism chem.inp --thermo therm.dat --transport tran.dat
+conda deactivate
+
+#尝试下面两个教程，基本可以解决所有 chemkinToFoam 报错的问题!!!
+#https://openfoam.top/chemkin/
+#http://dyfluid.com/chemkin.html
+
+#转换的格式直接使用chemkinToFoam会报错，需要修改以下几个地方
+#chem.inp中的REACTIONS CAL/MOLE MOLE改为REACTIONS CAL/MOLE
+#therm.dat中的THERMO改为THERMO ALL，并且从of官方复制替换
+#THERMO
+#200.000   1000.000  6000.000
+#为
+#THERMO ALL
+#   200.000  1000.000  6000.000
+#不复制替换还是会报错，还有就是例如每个元素的第一行
+#H2                      H   2               G
+#复制修改为
+#H2                121286H   2               G  0
+#200.000   3500.000  1000.000每个数字删除最后一个0
+
+
+cd ../
+mkdir chemkinToFoam
+
+#注意这个 case 的 transportProperties 设置成了无粘 inviscid
+
+chemkinToFoam chemkin/yaml2ck.modify/chem.inp chemkin/yaml2ck.modify/therm.dat chemkin/yaml2ck.modify/transportProperties chemkin/chemkinToFoam.result/chem.foam chemkin/chemkinToFoam.result/therm.foam
+
+
+#根据ct2foam生成的thermo.foam修改therm.foam中的As，Ts? 复杂，放弃
+#直接复制chemkinToFoam生成的chem.foam中的内容到ct2foam生成的reactions.foam中，
+#复制therm.foam中的第一行内容到ct2foam生成的thermo.foam中第一行即可!

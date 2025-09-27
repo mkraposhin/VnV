@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description: wallShearStress
+    Computes the wall-shear stress at selected wall patches.
+
+    \f[
+        \vec \tau = \vec R \cdot \vec n
+    \f]
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        <solver> -postProcess -func wallShearStress
+    \endverbatim
+-------------------------------------------------------------------------------
+Description: wallHeatFlux
+    Computes the wall-heat flux at selected wall patches.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        <solver> -postProcess -func wallHeatFlux
+    \endverbatim
+\*---------------------------------------------------------------------------*/
+
+wallShearStress //(tau)
+{
+    // Mandatory entries
+    type            wallShearStress;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries
+    patches         ( lowerWall ); //( "*.Wall*" "strut.*" ); //(wall1 "(wall2|wall3)");
+    writeFields     yes;
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+wallHeatFlux
+{
+    // Mandatory entries (unmodifiable)
+    type            wallHeatFlux;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries (runtime modifiable)
+    patches         ( lowerWall ); //( "*.Wall" "strut.*" ); //(wall1 "(wall2|wall3)");
+    qr              qr;
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  onEnd; //writeTime;
+    executeInterval -1;
+    writeControl    onEnd; //writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

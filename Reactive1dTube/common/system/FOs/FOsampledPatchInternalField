@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Variation of sampledPatch that samples the internalField (at a given
+    normal distance from the patch) instead of the patchField.
+    Note:
+    - interpolate=false : get cell value on faces
+    - interpolate=true  : interpolate inside cell and interpolate to points
+    There is no option to get interpolated value inside the cell on the faces.
+ 
+    This is often embedded as part of a sampled surfaces function object.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+// Sample near-wall velocity
+surfaceSampling
+{
+    type            surfaces;
+    libs            (sampling);
+    writeControl    onEnd; //writeTime;
+
+    interpolationScheme cellPoint;
+
+    surfaceFormat vtk;
+
+    // Fields to be sampled
+    fields
+    (
+        p U T rho Ma f_Bilger OH dQ 
+        mag(rhoSchlieren) mag(pSchlieren) 
+        wallShearStress wallHeatFlux 
+    );
+
+    surfaces
+    {
+        nearWall
+        {
+            type            patchInternalField;
+            patches         ( lowerWall );
+
+            offsetMode      normal; //normal/uniform/nonuniform
+            distance        1e-6; //distance for normal offset
+
+            //offsetMode      uniform;
+            //offset          (0 0 0.0001); //point offset for uniform offset
+
+            //offsetMode      nonuniform;
+            //offsets         ((0 0 0.0001) (0 0 0.0002)); //point offsets for nonuniform offset
+
+            interpolate     true;
+            triangulate     false;
+        }
+    }
+}
+
+
+// ************************************************************************* //

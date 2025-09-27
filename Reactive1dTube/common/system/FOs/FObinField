@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculates binned data, where specified patches are divided into
+    segments according to various input bin characteristics, so that
+    spatially-localised information can be output for each segment.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+binField
+{
+    type                    binField;
+    libs                    (fieldFunctionObjects);
+    binModel                singleDirectionUniformBin;
+    fields                  (forceCoeff);
+    patches                 (body);
+    decomposePatchValues    yes;
+    CofR                    ${..forceCoeffs1.CofR};
+    cellZones               (porousZone);
+
+    binData
+    {
+        nBin                20;      // output data into 20 bins
+        direction           (1 0 0); // bin direction
+        cumulative          yes;
+    }
+    writeControl            writeTime;
+}
+
+
+// ************************************************************************* //

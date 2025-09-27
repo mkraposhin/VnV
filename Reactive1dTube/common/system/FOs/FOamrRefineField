@@ -1,0 +1,100 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2212                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      functions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//https://github.com/nicolasbadano/GradientAMR
+
+amrRefineField
+{
+    type               coded;
+    libs               ("libutilityFunctionObjects.so");
+    name               amrRefineField;
+
+    executeControl     timeStep;
+    executeInterval    1;
+    writeControl       writeTime;
+    writeInterval      1;
+
+    codeOptions
+    #{
+
+    #};
+
+    codeInclude
+    #{
+        //#include "stringOps.H"
+        //#include "Table.H"
+        #include "volFields.H"
+        #include "fvcGrad.H"
+        //#include "mathematicalConstants.H"
+    #};
+
+    codeRead
+    #{
+
+    #};
+
+    codeExecute
+    #{
+        const volScalarField& rho = mesh().lookupObject<volScalarField>("rho");
+
+        const dimensionedScalar rhoSmall("rhoSmall", dimensionSet(1,-4,0,0,0,0,0), small); //+++ 防止开始计算时除零的浮点溢出错误
+
+        static autoPtr<volScalarField> normalMagGradRho_Ptr;
+        if(!normalMagGradRho_Ptr.valid())
+        {
+            Info << "Creating normalMagGradRho" << endl;
+            
+            normalMagGradRho_Ptr.set
+            (
+                new volScalarField
+                (
+                    IOobject
+                    (
+                        "normalMagGradRho",
+                        //mesh().time().name(),
+                        mesh().time().timeName(),
+                        mesh(),
+                        IOobject::NO_READ,
+                        IOobject::AUTO_WRITE
+                    ),
+                    //mag(fvc::grad(rho)) / max(mag(fvc::grad(rho)))
+                    mag(fvc::grad(rho)) / (max(mag(fvc::grad(rho)) + rhoSmall)) //+++ 防止开始计算时除零的浮点溢出错误
+                )
+            );
+        }
+        volScalarField& normalMagGradRho = normalMagGradRho_Ptr();
+
+        normalMagGradRho.checkIn();
+
+        //normalMagGradRho = mag(fvc::grad(rho)) / max(mag(fvc::grad(rho)));
+        normalMagGradRho = mag(fvc::grad(rho)) / (max(mag(fvc::grad(rho)) + rhoSmall)); //+++ 防止开始计算时除零的浮点溢出错误
+
+        //Info << "max normalMagGradRho = " << max(normalMagGradRho).value() << endl;
+    #};
+
+    codeWrite
+    #{
+        
+    #};
+
+    codeEnd
+    #{
+
+    #};
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,26 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculates the energy spectrum for a box of turbulence.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+energySpectrum
+{
+    type            energySpectrum;
+    libs            (randomProcessesFunctionObjects);
+    
+    executeControl  writeTime;
+    writeControl    writeTime;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes the run time (time-step), cpuTime and clockTime -
+    optionally with cpuTime and clockTime change for each time step.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+time
+{
+    type            timeInfo;
+    libs            (utilityFunctionObjects);
+    log             true;
+
+    writeControl    timeStep;
+    writeInterval   1;
+
+    writeToFile     yes;
+
+    perTimeStep     no;
+}
+
+// ************************************************************************* //

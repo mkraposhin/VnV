@@ -1,0 +1,41 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes the Mach number as a \c volScalarField.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func MachNo
+    \endverbatim
+
+\*---------------------------------------------------------------------------*/
+
+MachNo
+{
+    // Mandatory entries (unmodifiable)
+    type            MachNo;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    field           U;
+    //result          Ma;
+    
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,120 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes ensemble- and/or time-based field averages, with optional
+    windowing, for a user-specified selection of volumetric and/or surface
+    fields.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+fieldAverageSchlierenExposure
+{
+    // Mandatory entries
+    type            fieldAverage;
+    libs            (fieldFunctionObjects); 
+ 
+    // Optional entries (runtime modifiable)
+    restartOnRestart    off; //make sure results output in (restartTime + N*periodTime) folders! not use!
+    restartOnOutput     false;
+    periodicRestart     true;
+    restartPeriod       $tSchlierenExposure; //Gamba_JFM_Figure3, 20us
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartAvg; // normal EndTime
+    timeEnd         $tEndTime; // normal EndTime + 1*ExposureTime
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+
+    fields
+    (
+        mag(rhoSchlieren)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+        mag(pSchlieren)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+
+/*
+        mag(rhoShadowgraph)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+        mag(pShadowgraph)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+*/
+    );
+}
+
+fieldAverageColumnAverageExposure
+{
+    // Mandatory entries
+    type            fieldAverage;
+    libs            (fieldFunctionObjects); 
+ 
+    // Optional entries (runtime modifiable)
+    restartOnRestart    off; //can not open as calculateTime in 24Hours < 1*periodTime
+    restartOnOutput     false;
+    periodicRestart     true;
+    restartPeriod       $tLineOfSightExposure; //Gamba_JFM_Figure4, 200us
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartAvg; // normal EndTime
+    timeEnd         $tEndTime; // normal EndTime + 1*ExposureTime
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+
+    fields
+    (
+        columnAverage(OH)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+        columnAverage(dQ)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+        columnAverage(T)
+        {
+            mean            on;
+            prime2Mean      off;
+            base            time;
+        }
+    );
+}
+
+
+// ************************************************************************* //

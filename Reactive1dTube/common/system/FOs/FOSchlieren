@@ -1,0 +1,156 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculate and output Schlieren and Shadowgraph field.
+
+Usage
+    Minimal example by using the \c postProcess utility:
+    \verbatim
+        postProcess -func "grad(<field>)"
+        postProcess -func "mag(<field>)"
+    \endverbatim
+
+\*---------------------------------------------------------------------------*/
+
+rhoSchlieren
+{
+    // Mandatory entries (unmodifiable)
+    type            grad;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           rho;
+    result          rhoSchlieren;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for mag(rhoSchlieren) calculate
+    executeInterval 1;
+    writeControl    none; //writeTime
+    writeInterval   -1;
+}
+
+pSchlieren
+{
+    // Mandatory entries (unmodifiable)
+    type            grad;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           p;
+    result          pSchlieren;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for mag(pSchlieren) calculate
+    executeInterval 1;
+    writeControl    none; //writeTime
+    writeInterval   -1;
+}
+
+mag(rhoSchlieren)
+{
+    // Mandatory entries (unmodifiable)
+    type            mag;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           rhoSchlieren;
+    result          mag(rhoSchlieren);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+mag(pSchlieren)
+{
+    // Mandatory entries (unmodifiable)
+    type            mag;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           pSchlieren;
+    result          mag(pSchlieren);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+/*
+//functionObjects::div Shadowgraph failed to execute.
+rhoShadowgraph
+{
+    // Mandatory entries (unmodifiable)
+    type            div; //grad
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           rho; //rhoSchlieren
+    result          rhoShadowgraph;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;   
+}
+
+pShadowgraph
+{
+    // Mandatory entries (unmodifiable)
+    type            div; //grad
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           p; //pSchlieren
+    result          pShadowgraph;
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tSchlieren;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for fieldAverage
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;   
+}
+*/
+
+
+// ************************************************************************* //

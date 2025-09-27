@@ -1,0 +1,154 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description1
+    To sample field data and output as boundaryData for 
+    timeVaryingMappedFixedValue or turbulentDFSEMInlet inlet boundary condition.
+
+Description2
+    A surfaceWriter for outputting to a form usable for the
+    timeVaryingMapped boundary condition. This reads the data from
+    constant/boundaryData/<patch> directory.
+
+    - move postProcessing/surfaces/sampledBoundCuttingPlane4Inlet to 
+      constant/boundaryData/inletAir in your destination case.
+    - use a timeVaryingMappedFixedValue condition to read and interpolate
+      the profile:
+        type            timeVaryingMappedFixedValue;
+        setAverage      false;  // do not use read average
+        offset          0;      // do not apply offset to values
+
+    - write using this writer.
+    - move postProcessing/surfaces/outlet to constant/boundaryData/outlet
+      in your destination case.
+    - use a timeVaryingMappedFixedValue condition to read and interpolate
+      the profile:
+        type            timeVaryingMappedFixedValue;
+        setAverage      false;  // do not use read average
+        offset          0;      // do not apply offset to values
+ 
+Note
+    - with 'interpolate false' the data is on the face centres of the
+      patch. Take care that a 2D geometry will only have a single row
+      of face centres so might not provide a valid triangulation
+      (this is what timeVaryingMappedFixedValue uses to do interpolation)
+      (Alternatively use timeVaryingMappedFixedValue with mapMethod 'nearest')
+ 
+    \heading Output file locations
+ 
+    The \c rootdir normally corresponds to something like
+    \c postProcessing/<name>
+ 
+    where the geometry is written as:
+    \verbatim
+    rootdir
+    `-- surfaceName
+        `-- "points"
+    \endverbatim
+ 
+    and field data:
+    \verbatim
+    rootdir
+    `-- surfaceName
+        |-- "points"
+        `-- timeName
+            `-- field
+
+\*---------------------------------------------------------------------------*/
+
+//https://www.openfoam.com/documentation/guides/latest/api/boundaryDataSurfaceWriter_8H_source.html
+//https://www.openfoam.com/documentation/user-guide/7-post-processing/7.4-sampling-data
+sampledPlane2boundaryData
+{
+    type            surfaces;
+
+    enabled         true;
+    writeControl    writeTime;
+
+    surfaceFormat   boundaryData; //output format style
+
+    interpolationScheme none; //cell/cellPoint/cellPointFace/pointMVC/cellPatchConstrained, cellPoint better?
+    interpolate false;
+    triangulate false;
+
+    formatOptions
+    {
+        // Optionally specify write options
+        boundaryData
+        {
+            header      true;  // write as OpenFOAM object, default true
+            format      ascii; // write binary or ascii, default ascii
+            compression true;  // compress after writing, default false
+            /*
+            fieldLevel
+            {
+                p       1e5;    // Absolute -> gauge [Pa]
+            }
+            fieldScale
+            {
+                "p.*"   0.01;   // [Pa] -> [mbar]
+            }
+            */
+        }
+    }
+
+    surfaces
+    {
+        inletSurface
+        {
+            type        plane; //cuttingPlane better?
+            source      cells;
+
+            planeType   pointAndNormal;
+            pointAndNormalDict
+            {
+                point       (-0.020 0 0);
+                normal      (1 0 0);
+            }
+
+            bounds      (-0.021 0.0 -0.040) (-0.019 0.022 0.040);
+
+            interpolate false;
+            triangulate false;
+        }
+    }
+
+    fields
+    (
+        alphat
+        H
+        H2
+        H2O
+        H2O2
+        HO2
+        N2
+        nut
+        nuTilda
+        nuTilda_0
+        O
+        O2
+        OH
+        p
+        p_0
+        T
+        T_0
+        turbulenceProperties:alphat
+        turbulenceProperties:epsilon
+        turbulenceProperties:I
+        turbulenceProperties:k
+        turbulenceProperties:L
+        turbulenceProperties:nuTilda
+        turbulenceProperties:omega
+        turbulenceProperties:R
+        U
+        U_0
+        UPrime2Mean
+    );
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,274 @@
+functions
+{
+    //calculate and output nu
+    nu
+    {
+        type                coded;
+        libs                (utilityFunctionObjects);
+        name                nu;
+        timeStart           $tResIndex;
+        writeControl        writeTime;
+
+        codeExecute
+        #{
+            auto* nuPtr =
+                mesh().getObjectPtr<volScalarField>("nu");
+
+            if (!nuPtr)
+            {
+                Info<< "Create laminar kinematic viscosity field" << nl;
+                nuPtr = new volScalarField
+                (
+                    IOobject
+                    (
+                        "nu",
+                        mesh().time().timeName(),
+                        mesh(),
+                        IOobject::NO_READ,
+                        IOobject::AUTO_WRITE,
+                        IOobject::REGISTER
+                    ),
+                    mesh(),
+                    dimViscosity
+                );
+
+                regIOobject::store(nuPtr);
+            }
+
+            auto& nu = *nuPtr;
+
+            Info<< "Computing laminar viscosity field\n" << endl;
+
+            const auto& mu = mesh().getOrReadField<volScalarField>("thermo:mu");
+            //const_cast<volScalarField&>(thermo.mu()); //mesh().lookupObject<volVectorField>("mu");
+
+            const auto& rho = mesh().lookupObject<volScalarField>("rho");
+
+            //const dimensionedScalar Ubulk(dimVelocity, 17.55);
+
+            nu = mu / rho;
+        #};
+    }
+
+    momErr
+    {
+        type            momentumError;
+        libs            (fieldFunctionObjects);
+        executeControl  writeTime;
+        writeControl    writeTime;
+    }
+
+    contErr
+    {
+        type            div;
+        libs            (fieldFunctionObjects);
+        field           phi;
+        executeControl  writeTime;
+        writeControl    writeTime;
+    }
+
+    productionRate
+    {
+        type            coded;
+        libs            (utilityFunctionObjects);
+        name            productionRate;
+        writeControl    writeTime;
+
+        codeExecute
+        #{
+            auto* prodPtr =
+                mesh().getObjectPtr<volScalarField>("productionRate");
+
+            if (!prodPtr)
+            {
+                Info<< "Create production rate field" << nl;
+                prodPtr = new volScalarField
+                (
+                    IOobject
+                    (
+                        "productionRate",
+                        mesh().time().timeName(),
+                        mesh(),
+                        IOobject::NO_READ,
+                        IOobject::AUTO_WRITE
+                    ),
+                    mesh(),
+                    sqr(dimLength)/pow3(dimTime)
+                );
+
+                regIOobject::store(prodPtr);
+            }
+            auto& prod = *prodPtr;
+
+            Info<< "Computing production rate field\n" << endl;
+
+            const auto& U = mesh().lookupObject<volVectorField>("U");
+
+            auto* RPtr =
+                mesh().getObjectPtr<volSymmTensorField>("R");
+
+            if (!RPtr)
+            {
+                const auto& nut = mesh().lookupObject<volScalarField>("nut");
+
+                prod = 2*nut*(symm(fvc::grad(U)) && symm(fvc::grad(U)));
+            }
+            else
+            {
+                auto& R = *RPtr;
+
+                prod = 0.5*(mag(tr(-twoSymm(R & fvc::grad(U)))));
+            }
+        #};
+    }
+
+    alphaVol
+    {
+        libs            (utilityFunctionObjects);
+        type            coded;
+        name            alphaVolume;
+        writeControl    timeStep;
+        writeInterval   10;
+
+        codeWrite
+        #{
+
+            const auto& alpha =
+                mesh().lookupObject<volScalarField>("alpha.water");
+
+            Info<< "Alpha volume = " << alpha.weightedAverage(mesh().Vsc())
+                << endl;
+
+        #};
+    }
+
+    rhoVol
+    {
+        libs            (utilityFunctionObjects);
+        type            coded;
+        name            rhoVolume;
+        writeControl    timeStep;
+        writeInterval   10;
+
+        codeWrite
+        #{
+            const auto& rho = mesh().lookupObject<volScalarField>("rho");
+
+            Info<< "rho volume = " << rho.weightedAverage(mesh().Vsc()) << endl;
+        #};
+    }
+
+    timeStep
+    {
+        name    setDeltaT;
+        type    coded;
+        libs    (utilityFunctionObjects);
+
+        code
+        #{
+        #};
+
+        codeExecute
+        #{
+            const Time& runTime = mesh().time();
+            if (runTime.timeToUserTime(runTime.value()) >= -15.0)
+            {
+                const_cast<Time&>(runTime).setDeltaT
+                (
+                    runTime.userTimeToTime(0.025)
+                );
+            }
+        #};
+    }
+
+    coded1
+    {
+        name                calcGrad;
+        type                coded;
+        libs                (utilityFunctionObjects);
+        writeControl        timeStep;
+
+        codeInclude
+        #{
+            #include        "emptyFvPatchField.H"
+        #};
+
+        codeExecute
+        #{
+            const volVectorField& Cc = mesh().C();
+            volVectorField Cc2
+            (
+                IOobject
+                (
+                    "Cc",
+                    mesh().time().timeName(),
+                    mesh(),
+                    IOobject::NO_READ
+                ),
+                mesh(),
+                dimensionedVector(dimless/dimLength, Zero)
+            );
+
+            Cc2.primitiveFieldRef() = Cc.primitiveField();
+            auto& bf = Cc2.boundaryFieldRef();
+
+            forAll(bf, patchi)
+            {
+                fvPatchVectorField& pf = bf[patchi];
+
+                if (!isA<emptyFvPatchField<vector>>(pf))
+                {
+                    pf == Cc.boundaryField()[patchi];
+                }
+            }
+
+            tmp<volTensorField> gradC = fvc::grad(Cc2);
+            const word gradCName(gradC.cref().name());
+            gradC->write();
+
+            volScalarField error
+            (
+                IOobject
+                (
+                    "error",
+                    mesh().time().timeName(),
+                    mesh(),
+                    IOobject::NO_READ
+                ),
+                mesh(),
+                dimensionedScalar(dimless, Zero)
+            );
+
+            volScalarField magError
+            (
+                IOobject
+                (
+                    "magError",
+                    mesh().time().timeName(),
+                    mesh(),
+                    IOobject::NO_READ
+                ),
+                mesh(),
+                dimensionedScalar(dimless, Zero)
+            );
+
+            const dimensionedScalar root2(dimless/sqr(dimLength), Foam::sqrt(2.0));
+
+            error = scalar(100)*(mag(gradC) - root2)/root2;
+            error.write();
+
+            magError = mag(error);
+            magError.write();
+        #};
+    }
+
+    readFields1
+    {
+        type            readFields;
+        libs            (fieldFunctionObjects);
+        fields          ( error magError );
+    }
+}
+
+
+// ************************************************************************* //

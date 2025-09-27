@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    To sample field data, either through a 1D line for plotting on graphs 
+    or a 2D plane and 3D surfaces for displaying as images.
+
+Usage
+    postProcess -func FOs/FOsample
+
+\*---------------------------------------------------------------------------*/
+
+slice
+{
+    type    surfaces;
+    libs    (sampling);
+
+    writeControl    writeTime;
+    //timeStart       #eval{ 1*$tOneFlowThrough + 0*$writeInterval };
+
+    surfaceFormat   vtk;
+
+    fields          
+    ( 
+        p U T rho Ma Yi_0 dQ mag(rhoSchlieren) mag(pSchlieren) OH H2O HO2 H2 O2 N2 O H H2O2
+    );
+
+    interpolationScheme cellPoint; //<- default, another is cell; prefer cellPoint, because better than cell!
+
+    x (1 0 0);
+    y (0 1 0);
+    z (0 0 1);
+    origin (0 0 0);
+
+    surfaces
+    {
+        zNormal
+        {
+            type        cuttingPlane; //prefer cuttingPlane, because better than plane!
+            point       (0 0 0);
+            normal      (0 0 1);
+            interpolate true;
+
+            //bounds      (-1 -1 -1) (0 0 1);
+            //offsets ( -0.008 0.008 0.016 0.024 0.032 );
+            // x/d =  -4,    4,    8,    12,   16
+        }
+    }
+}
+
+
+// ************************************************************************* //

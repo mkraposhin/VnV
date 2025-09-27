@@ -1,0 +1,58 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    For specified fields, writes out the initial residuals for the first
+    solution of each time step; for non-scalar fields (e.g. vectors), writes
+    the largest of the residuals for each component (e.g. x, y, z).
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+solverInfo
+{
+    // Mandatory entries
+    type            solverInfo;
+    libs            (utilityFunctionObjects);
+    
+    fields
+    (
+        p 
+        U 
+        T
+        h
+        //e
+        rho
+        //k
+        //omega
+        //epsilon
+        //nuTilda
+    );
+
+    // Optional entries
+    //writeResidualFields    true; //default false
+
+    // Optional (inherited) entries
+    writePrecision   16;
+    writeToFile      true;
+    useUserTime      true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime;
+    timeEnd         $tEndTime;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    timeStep;
+    writeInterval   1;    
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes an indicator field for detached eddy simulation (DES) turbulence
+    calculations, where the values of the indicator mean:
+
+    \verbatim
+      0 = Reynolds-averaged Navier-Stokes (RAS) regions
+      1 = Large eddy simulation (LES) regions
+    \endverbatim
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+DESModelRegions
+{
+    // Mandatory entries
+    type            DESModelRegions;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries
+    result          DESField;
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex; //must before FOmaskedResolutionIndex in controlDict functions
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;   
+}
+
+blendingFactor //DEShybrid:Factor //need div(phi,U) in fvSchemes
+{
+    // Mandatory entries
+    type            blendingFactor;
+    libs            (fieldFunctionObjects);
+
+    field           U;
+
+    // Optional entries
+    phi             phi;
+    tolerance       0.001;
+
+    // Optional (inherited) entries
+    result          blendingFactorField;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex;
+    timeEnd         $tEndTime;
+    executeControl  writeTime;
+    executeInterval -1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

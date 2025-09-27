@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes out values of fields from cells nearest to specified locations.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+probes
+{
+    type    probes;
+    libs    (sampling);
+
+    name    probes;
+
+    writeControl   timeStep;
+    writeInterval  1;
+
+    fixedLocations  true;
+    sampleOnExecute false;
+    includeOutOfBounds true;
+    interpolationScheme cell;
+
+    // Fields to be probed. runTime modifiable!
+    fields
+    (
+        p 
+        U
+        T
+        h
+        //e 
+        rho
+        dQ
+        //k
+        //omega
+        //epsilon
+        //nuTilda
+    );
+
+    // Locations to be probed. runTime modifiable!
+    probeLocations
+    (
+        // bottom wall    // Gamba.JFM.P267.Figure. 22
+        ( 0      0      0 )
+        ( 0.0095 0      0 )
+        ( 0.019  0      0 )
+        ( 0.038  0      0 )
+        ( 0.057  0      0 )
+        ( 0.076  0      0 )
+
+        // shear layer    // ppt.Gradrho.J=5.0
+        ( 0      0.0054  0 )
+        ( 0.0095 0.0098  0 )
+        ( 0.019  0.012   0 )
+        ( 0.038  0.0146  0 )
+        ( 0.057  0.014   0 )
+        ( 0.076  0.0142  0 )
+
+        // boundaryData inletAir
+        ( -0.020  0.011  0 )
+    );
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes a single-mesh resolution index according to the specified model,
+    which is used as a LES/DES quality/post-verification metric that does
+    not require any experimental or DNS data.
+    DES turbulent model need this file to mask DESField.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+maskedResolutionIndex1
+{
+    // Mandatory entries (unmodifiable)
+    type    multiply;
+    libs    (fieldFunctionObjects);
+
+    // Mandatory (inherited) entry (runtime modifiable)
+    fields
+    (
+        DESField
+        PopeIndexField
+    );
+
+    // Inherited entries
+    result          maskedPopeIndexField;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tmaskedResIndex; //must after FODESModelRegions and FOresolutionIndex in controlDict functions
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+maskedResolutionIndex2
+{
+    $maskedResolutionIndex1;
+    fields
+    (
+        DESField
+        PopeIndexFieldWithoutKNum
+    );
+    result          maskedPopeIndexFieldWithoutKNum;
+}
+
+maskedResolutionIndex3
+{
+    $maskedResolutionIndex1;
+    fields
+    (
+        DESField
+        CelikNuField
+    );
+    result          maskedCelikNuField;
+}
+
+maskedResolutionIndex4
+{
+    $maskedResolutionIndex1;
+    fields
+    (
+        DESField
+        CelikEtaField
+    );
+    result          maskedCelikEtaField;
+}
+
+
+// ************************************************************************* //

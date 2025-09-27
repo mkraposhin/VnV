@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2212                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "(rho|U|h|p|Yi).*"
+    //"(rho|U|h|p|Yi|smokeFoil).*"
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-15;
+        relTol          0.0;
+    }
+}
+
+PIMPLE
+{
+    momentumPredictor           false; //true;
+    nCorrectors                 1;
+    nOuterCorrectors            3;
+    nNonOrthogonalCorrectors    0;
+    nonOrthogonalityThreshold   60;
+    skewnessThreshold           0.5;
+    updateEnergyInPISO          false;
+    fluxScheme                  Kurganov; //Tadmor;
+
+    correctPhi                  true;
+    checkMeshCourantNo          true;
+    noFluxWeighting             false;
+
+    kappaFunction
+    {
+        type standardMachToAcCourantRatio;
+        
+        standardMachToAcCourantRatioCoeffs
+        {
+        }
+    }
+}
+
+// ************************************************************************* //

@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2212                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+defaultFieldValues
+(
+    volScalarFieldValue H2 0.0127 //H2:O2:Ar=2:1:7 (mole fraction)
+    volScalarFieldValue O2 0.1014
+    volScalarFieldValue AR 0.8859
+
+    volScalarFieldValue rho 0.072
+    volVectorFieldValue U (0 0 0)
+    volScalarFieldValue T 378.27543 //见：多组分混合物已知rhUp求T.PDF
+    volScalarFieldValue p 7173
+);
+
+regions
+(
+    boxToCell
+    {
+        box (0.06 -1 -1) (0.12 1 1);
+        fieldValues
+        (
+            volScalarFieldValue H2 0.0127 //H2:O2:Ar=2:1:7 (mole fraction)
+            volScalarFieldValue O2 0.1014
+            volScalarFieldValue AR 0.8859
+
+            volScalarFieldValue rho 0.18075
+            volVectorFieldValue U (-487.34 0 0)
+            volScalarFieldValue T 747.71878 //见：多组分混合物已知rhUp求T.PDF
+            volScalarFieldValue p 35594
+        );
+    }
+);
+
+
+// ************************************************************************* //

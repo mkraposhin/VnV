@@ -1,0 +1,95 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes a dynamic mode decomposition model on a specified field.
+
+    Dynamic mode decomposition (i.e. DMD) is a data-driven
+    dimensionality reduction method. DMD is being used as a mathematical
+    processing tool to reveal dominant modes out of a given field (or dataset)
+    each of which is associated with a constant frequency and decay rate,
+    so that dynamic features of a given flow may become interpretable,
+    tractable, and even reproducible without computing simulations.
+    DMD only relies on input data, therefore it is an equation-free approach.
+
+Usage
+    Minimal example by using the postProcess utility:
+    \verbatim
+        <solver> -postProcess -fields '(U p)' -time '10:'
+    \endverbatim
+
+\*---------------------------------------------------------------------------*/
+
+stdmd01
+{
+    // Mandatory entries (unmodifiable)
+    type                DMD;
+    libs                (fieldFunctionObjects);
+    DMDModel            STDMD;
+    field               U;
+
+    // Optional entries (unmodifiable)
+    /* patch               <patchName>; */
+
+    // Conditional mandatory entries (runtime modifiable)
+
+        // Option-1
+        /* interval            5.5; */
+
+        // Option-2
+        /* executeInterval     10; */
+
+    // Optional entries (runtime modifiable)
+    /* modeSorter          firstSnapshot; */
+    /* nGramSchmidt        5; */
+    /* maxRank             50; */
+    /* nModes              50; */
+    /* fMin                0; */
+    /* fMax                1000000000; */
+
+    // Optional entries (runtime modifiable, yet not recommended)
+    /* minBasis            0.00000001; */
+    /* minEVal             0.00000001; */
+    /* sortLimiter         500.0; */
+
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  timeStep;
+    executeInterval 10;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+stdmd02
+{
+    ${stdmd01}
+
+    region          coarseMesh;
+}
+
+stdmd03
+{
+    ${stdmd01}
+
+    patch          cylinder;
+}
+
+stdmd48
+{
+    ${stdmd01}
+    field            UPrime2Mean;
+    maxRank          5;
+    region           coarseMesh;
+}
+
+
+// ************************************************************************* //

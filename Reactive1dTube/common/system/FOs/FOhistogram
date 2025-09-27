@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes the volume-weighted histogram of an input \c volScalarField.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+histogram1
+{
+    // Mandatory entries (unmodifiable)
+    type            histogram;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           f_Bilger;
+    model           equalBinWidth;
+    setFormat       gnuplot;
+
+    // Optional entries (runtime modifiable)
+    nBins           100;
+    max             1;
+    min             0.001;
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+histogram2
+{
+    // Mandatory entries (unmodifiable)
+    type            histogram;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory (inherited) entries (runtime modifiable)
+    field           p;
+    model           unequalBinWidth;
+    setFormat       gnuplot;
+
+    // Conditional entries
+    ranges
+    (
+        // min  max
+        (-10    -9)    // bin-0
+        (-9     -8)    // bin-1
+        (-8     -7)
+        (-7     -6)
+        (-6     -2)
+        (-2      0)
+        (0       5)
+        (5       10)
+    );
+
+    // Optional (inherited) entries
+    writePrecision  12;
+    writeToFile     true;
+    useUserTime     true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tTurFields;
+    timeEnd         $tEndTime;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

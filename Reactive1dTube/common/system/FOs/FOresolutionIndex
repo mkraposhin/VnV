@@ -1,0 +1,115 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes a single-mesh resolution index according to the specified model,
+    which is used as a LES/DES quality/post-verification metric that does
+    not require any experimental or DNS data.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+\*---------------------------------------------------------------------------*/
+
+resolutionIndex1
+{
+    // Mandatory entries
+    type            resolutionIndex;
+    libs            (fieldFunctionObjects);
+    model           PopeIndex;
+    result          PopeIndexField;
+
+    // Optional entries
+    U               U;
+    UMean           UMean;                    //$tStartAvg
+    k               "turbulenceProperties:k"; //$tTurFields
+    delta           delta;                    //$tWriteObj
+    includeKnum     true;
+    Cn              1.0;
+
+    // Inherited entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex; //must after $tStartAvg, $tTurFields and $tWriteObj
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+resolutionIndex2
+{
+    $resolutionIndex1;
+    result          PopeIndexFieldWithoutKNum;
+    includeKnum     false;
+}
+
+resolutionIndex3
+{
+    // Mandatory entries
+    type            resolutionIndex;
+    libs            (fieldFunctionObjects);
+    model           CelikNuIndex;
+    result          CelikNuField;
+
+    // Optional entries
+    alphaNu         0.05;
+    n               0.53;
+    Cnu             0.1;
+    Cn              1.0;
+    k               "turbulenceProperties:k"; //$tStartAvg
+    delta           delta;                    //$tWriteObj
+    nu              nu;                       //$tWriteObj
+    nut             nut;
+
+    // Inherited entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex;
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+resolutionIndex4
+{
+    // Mandatory entries
+    type            resolutionIndex;
+    libs            (fieldFunctionObjects);
+    model           CelikEtaIndex;
+    result          CelikEtaField;
+
+    // Optional entries
+    alphaEta        0.05;
+    m               0.5;
+    Cnu             0.1;
+    Cn              1.0;
+    Ck              0.0367;
+    k               "turbulenceProperties:k"; //$tStartAvg
+    delta           delta;                    //$tWriteObj
+    nu              nu;                       //$tWriteObj
+    nut             nut;
+
+    // Inherited entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tResIndex;
+    timeEnd         $tEndTime;
+    executeControl  writeTime; //onEnd
+    executeInterval -1;
+    writeControl    writeTime; //onEnd
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

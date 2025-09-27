@@ -1,0 +1,126 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2212                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "control.include"
+
+tStartTime      0;
+tSchlieren      0;
+tEndTime        230e-6;
+
+libs
+(
+    //libROUNDSchemes
+);
+
+startFrom       latestTime;
+
+startTime       $tStartTime;
+
+stopAt          endTime;
+
+endTime         230e-6;
+
+deltaT          1e-8;
+
+writeControl    adjustableRunTime;
+
+writeInterval   10e-6;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  12;
+
+writeCompression on;
+
+timeFormat      general;
+
+timePrecision   12;
+
+graphFormat     raw;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           0.1; //0.2; //为了对比，和 SMF 设置一样
+
+maxDeltaT       1;
+
+CourantType     cellCourant; //faceCourant
+
+writeCourant    false;
+
+
+//FO 放置的前后顺序有讲究，后面 FO 处理中需要的量，必须先在前面定义好，否则会报错！
+functions
+{
+///*
+    //#include "FOs/FOBilgerMixtureFraction"
+
+    //#include "FOs/FOMachNo"
+    #include "FOs/FOSchlieren"
+    //#include "FOs/FOamrRefineField"
+
+    //#include "FOs/FOvolFieldValue"
+
+    //#include "FOs/FOvolFields" // must before FOexprField
+    //#include "FOs/FOwallFields"
+    //#include "FOs/FOnearWallFields" //must after FOwallFields
+    //#include "FOs/FOyPlus" //Failed to store pointer: yPlus. Risk of memory leakage
+
+    //#include "FOs/FOfieldAverage" //必须放在要平均的量后面，比如 MachNo，否则会报错！
+
+    //#include "FOs/FOcolumnAverage"
+    //#include "FOs/FOfieldAverageExposure" //time-averaged (exposure time) Schlieren image，必须放在两者之间
+    //#include "FOs/FOfieldExtents"
+
+    //#include "FOs/FOturbulenceFields"
+    //#include "FOs/FOwriteObjects"
+
+    //#include "FOs/FOexprField" //output nu for FOresolutionIndex
+    //#include "FOs/FODESModelRegions" //for DES
+    //#include "FOs/FOresolutionIndex"
+    //#include "FOs/FOmaskedResolutionIndex" //for DES
+
+    //#include "FOs/FODMD"
+    //#include "FOs/FOrunTimePostprocessing"
+    //#include "FOs/FOreactionSensitivityAnalysis"
+
+    //#include "FOs/FOwriteCellCentres"
+    //#include "FOs/FOwriteCellVolumes"
+
+    //#include "FOs/FOprobes"
+    //#include "FOs/FOsample"
+    //#include "FOs/FOsampledPatchInternalField" 
+    //#include "FOs/FOsampledPlane2boundaryData"
+    //#include "FOs/FOfieldMinMax"
+    
+    #include "FOs/FOresiduals"
+    //#include "FOs/FOsolverInfo"
+    #include "FOs/FOtimeInfo"
+    #include "FOs/FOprocessorField"
+    //#include "FOs/FOrunTimeControl"
+
+    //#include "FOs/FObinField"
+    //#include "FOs/FOhistogram"
+    //#include "FOs/FOenergySpectrum"
+//*/
+}
+
+
+// ************************************************************************* //

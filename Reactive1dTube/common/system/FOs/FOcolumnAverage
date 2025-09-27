@@ -1,0 +1,178 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v2212
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Computes the arithmetic average of given quantities along columns of cells
+    in a given direction for structured-like layered meshes. It is, for example,
+    useful for channel-like cases where spanwise average of a field is desired.
+    However, the \c columnAverage function object does not operate on arbitrary
+    unstructured meshes.
+
+    For each patch face, calculates the average value of all cells attached in
+    the patch face normal direction, and then pushes the average value back
+    to all cells in the column.
+
+Usage
+    Usage by the postProcess utility is not available.
+
+Note
+    columnAverage 可以求展向平均（流向，法向 也可以）
+    patches：Names of patches to collapse onto
+    此项不能为空，在给定 patches 的法线方向进行算术平均，也就是通过给定的 patches 来确定视线积分的方向。
+    如果设置为空的话，就是在 xyz 三个方向求和再平均，和不计算 columnAverage 结果一样，毫无意义。
+    同时给定 inletAir（流向）和 frontAndBack（展向）的话，会同时在 xz 两个方向进行算术平均；
+    只给定 frontAndBack（展向）的话，就是只在 z 方向进行求和及平均，效果相当于视线积分！
+
+    使用 columnAverage 时还需要注意，在指定 patches 从而确定的法线方向求取的是算术平均值，
+    其数值浓度已经除以了法线方向的网格数（网格数的具体数值可以通过 blockMesh 日志获得）。
+    要获取视线积分（求和）的话，需要在 paraview 中乘以一个倍数（即，法线方向网格数），
+    或者通过 OpenFOAM 自带的 exprField 来乘以倍数并输出。
+    不管乘不乘以倍数，OH 和 OHMean 等场的数值浓度都已改变，
+    那么 Lift off flame 中， 0.001 的阈值也需要根据法线方向的网格数（倍数）来改变!
+    所以，FOfieldExtents 中定义求解的 lift-off length 准确与否，需要重新考量验证，
+    最好还是根据云图重新测量计算！
+
+\*---------------------------------------------------------------------------*/
+
+//Must read above -> Note!!!
+//FOcolumnAverage must before FOfieldExtents!
+
+//line of sight
+OHchemiluminescence //LOS_OH
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( OH ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //different with each field
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+OHMeanchemiluminescence //LOS_OHMean
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( OHMean ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //different with each field
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+dQchemiluminescence //LOS_Qdot
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( dQ ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength; //different with each field
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+dQMeanchemiluminescence //LOS_QdotMean
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( dQMean ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tLiftoffLength;
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+lineOfSight_T
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( T ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime; //different with aboves
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+lineOfSight_TMean
+{
+    // Mandatory entries (unmodifiable)
+    type            columnAverage;
+    libs            (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    patches         ( frontAndBack ); // spanwise average; //(<patch1> <patch2> ... <patchN>); //(front "proc.*throughfront");
+    fields          ( TMean ); //(<field1> <field2> ... <fieldN>);
+
+    // Optional (inherited) entries
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       $tStartTime; //different with aboves
+    timeEnd         $tEndTime;
+    executeControl  timeStep; //must be timeStep for FOfieldAverageExposure
+    executeInterval 1;
+    writeControl    writeTime; //none;
+    writeInterval   -1;
+}
+
+
+// ************************************************************************* //

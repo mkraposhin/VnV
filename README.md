@@ -41,4 +41,4 @@ Next cases are available (uploaded to the repository):
 - the two gases diffusion case
 - the forward step
 - the Sod's problem for two gases
-- a 1D reacting tube
+- a 1D reactive tube
