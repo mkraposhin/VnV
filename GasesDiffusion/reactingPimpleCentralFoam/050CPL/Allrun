@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+touch reactingPimpleCentralFoam-050CPL.foam
+runApplication blockMesh
+cp -rf 0.orig 0
+runApplication setFields
+runApplication `getApplication`
+#runApplication postProcess -func sampleDict
+#python ../../../scripts/one_d_perf_gas_calc_errors.py postProcessing/sampleDict/0.25/line_T_p_rho_U.csv  ../../reference/exact.out > solution_errors
+
+#------------------------------------------------------------------------------
