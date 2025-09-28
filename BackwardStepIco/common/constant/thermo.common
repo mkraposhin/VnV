@@ -1,0 +1,20 @@
+mixture
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       8314.46261815324; //this value must give p=1 when rho=1 and T=1
+    }
+    thermodynamics
+    {
+        Cp              1.4;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              0.001;
+        Pr              1;
+        beta            0;
+    }
+}
+
