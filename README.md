@@ -2,6 +2,18 @@
 
 The primary objective of the repository to gather and keep updated verification and validation problems showing strengths and weakneses of the aforementioned computational complexes.
 
+## Available cases
+
+Next cases are available (uploaded to the repository):
+
+- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem)
+- [the two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks)
+- [the two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion)
+- [the forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep)
+- [the Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem)
+- [a 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube)
+- [Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco)
+
 ## The structure of the repository
 
 The structure of the repository is next.
@@ -32,13 +44,4 @@ The wish list of cases to check is maintained using the [issues](https://github.
             200CPL/
             400CPL/
     
-## Available cases
 
-Next cases are available (uploaded to the repository):
-
-- the Sod's shock tube
-- the two shocks problem
-- the two gases diffusion case
-- the forward step
-- the Sod's problem for two gases
-- a 1D reactive tube
