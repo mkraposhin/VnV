@@ -1,0 +1,19 @@
+mixture
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       8314.46261815324; //this value yields c=1 when Cp=5 and T = 0.8
+    }
+    thermodynamics
+    {
+        Cp              5.0;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+

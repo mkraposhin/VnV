@@ -13,6 +13,11 @@ Next cases are available (uploaded to the repository):
 - [the Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem)
 - [a 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube)
 - [Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco)
+- [a planar acoustic wave propagation](https://github.com/mkraposhin/VnV/tree/main/PlanarAcousticWave)
+
+## Cases with automatied verification procedure
+
+- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem)
 
 ## The structure of the repository
 
