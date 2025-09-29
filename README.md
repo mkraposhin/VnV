@@ -6,14 +6,15 @@ The primary objective of the repository to gather and keep updated verification 
 
 Next cases are available (uploaded to the repository):
 
-- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem)
-- [the two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks)
-- [the two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion)
-- [the forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep)
-- [the Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem)
-- [a 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube)
-- [Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco)
-- [a planar acoustic wave propagation](https://github.com/mkraposhin/VnV/tree/main/PlanarAcousticWave)
+- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
+- [the two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks);
+- [the two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion);
+- [the forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep);
+- [the Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem);
+- [a 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube);
+- [Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco);
+- [a planar acoustic wave propagation](https://github.com/mkraposhin/VnV/tree/main/PlanarAcousticWave);
+- [a converging-diverging nozzle](https://github.com/mkraposhin/VnV/tree/main/ConverginDivergingNozzle).
 
 ## Cases with automatied verification procedure
 
