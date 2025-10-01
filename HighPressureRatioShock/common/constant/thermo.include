@@ -1,0 +1,21 @@
+mixture
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       20785;
+    }
+    thermodynamics
+    {
+        Cp              1.4;
+        Hf              0.0;
+        Tref            0.0;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+// ************************************************************************* //

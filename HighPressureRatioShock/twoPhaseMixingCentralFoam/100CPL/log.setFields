@@ -1,0 +1,43 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setFields
+Date   : Oct 01 2025
+Time   : 22:50:45
+Host   : m-lenovo
+PID    : 202656
+I/O    : uncollated
+Case   : /home/matvey-l/data/mkraposhin-github/VnV-github/TwoRarefactionWaves/twoPhaseMixingCentralFoam/100CPL
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting volume field default values
+    - set internal values of volScalarField: T = 1
+    - set internal values of volScalarField: p = 0.4
+    - set internal values of volVectorField: U = (2 0 0)
+
+Setting field region values
+
+    Adding cells with centre within boxes 1((-1 -1 -1) (0.5 1 1))
+    Selected 50/100 cells
+    - set internal values of volVectorField: U = (-2 0 0)
+    - set internal values of volScalarField: T = 1
+    - set internal values of volScalarField: p = 0.4
+
+End
+
