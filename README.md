@@ -6,8 +6,9 @@ The primary objective of the repository to gather and keep updated verification 
 
 Next cases are available (uploaded to the repository):
 
-- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
-- [the 2 rarefaction proble](https://github.com/mkraposhin/VnV/tree/main/TwoRarefactionWaves);
+- [the Sod's shock 1D tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
+- [the 2 rarefaction 1D problem](https://github.com/mkraposhin/VnV/tree/main/TwoRarefactionWaves);
+- [the shock with high pressure ratio 1D problem](https://github.com/mkraposhin/VnV/tree/main/HighPressureRatioShock);
 - [the two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks);
 - [the two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion);
 - [the forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep);
