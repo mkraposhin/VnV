@@ -2,8 +2,6 @@ application     rhoPimpleCentralFoam;
 
 CourantType     cellCourant;
 
-//maxCo           0.25; //0.3
-
-maxCo           0.1; //0.3
+maxCo           0.3;
 
 // ************************************************************************* //
