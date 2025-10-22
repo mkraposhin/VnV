@@ -1,6 +1,6 @@
 # Verification and validation repository for QGD/Hybrid solvers
 
-The primary objective of the repository to gather and keep updated verification and validation problems showing strengths and weakneses of the aforementioned computational complexes.
+The primary objective of the repository is to gather and keep updated verification and validation problems showing strengths and weakneses of the aforementioned computational complexes.
 
 ## Available cases
 
