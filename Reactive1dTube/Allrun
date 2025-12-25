@@ -1,0 +1,34 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# -- Copy the original 0 directory
+cp 0.orig 0 -r
+
+# -- Create paraview file
+paraFoam -builtin -touch
+
+# -- Create mesh
+runApplication blockMesh
+
+# -- Decompose the case
+#runApplication decomposePar
+
+# -- Set initial conditions
+#runParallel setFields
+runApplication setFields
+
+#https://github.com/OpenFOAM/OpenFOAM-dev/commit/1b80fd35e48d30502eab12227055b04bafe3ef1d
+#https://github.com/OpenFOAM/OpenFOAM-dev/tree/master/tutorials/multicomponentFluid/nc7h16/0
+# -- Converts mole fraction fields to the corresponding mass fraction fields
+#runParallel -s mole2mass foamPostProcess -func massFractions
+
+# -- run the calc
+#runParallel $(getApplication)
+runApplication $(getApplication)
+
+../../PostProcess
+
+# ----------------------------------------------------------------- end-of-file

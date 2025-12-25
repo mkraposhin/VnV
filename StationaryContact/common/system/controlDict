@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2212                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -10,37 +10,43 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      sample;
+    location    "system";
+    object      controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type sets;
-libs            ("libsampling.so");
+#include        "control.include"
 
-setFormat       raw;
+startFrom       startTime;
 
-interpolationScheme cell;
+startTime       0;
 
-// Fields to sample.
-fields
-(
-    T
-    U
-    /*gamma*/
-    H
-);
+stopAt          endTime;
 
-sets
-(
-    Centerline
-    {
-        type    cellCentre;
-        axis    x;
+endTime         2e-3;
 
-        start   (0 0 0);
-        end     (0.12 0 0);
-    }
-);
+deltaT          5e-6;
 
+writeControl    adjustableRunTime;
+
+writeInterval   2e-3;
+
+cycleWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  false;
+
+maxDeltaT       1;
 
 // ************************************************************************* //

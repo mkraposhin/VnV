@@ -1,0 +1,68 @@
+#!/usr/bin/bash
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+runApplication postProcess -func sample -time '170e-6,190e-6,230e-6'
+
+#Time=170us
+#H
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/YH_t\=170us.csv ref.txt
+cut postProcessing/sample/0.00017/Centerline_H_T_U.xy -f 1,2 > Hnum.txt
+ln -s Hnum.txt num.txt
+error_H_170=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#T
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/T_t\=170us.csv ref.txt
+cut postProcessing/sample/0.00017/Centerline_H_T_U.xy -f 1,3 > Tnum.txt
+ln -s Tnum.txt num.txt
+error_T_170=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#Ux
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/Ux_t\=170us.csv ref.txt
+cut postProcessing/sample/0.00017/Centerline_H_T_U.xy -f 1,4 > Unum.txt
+ln -s Unum.txt num.txt
+error_Ux_170=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+
+
+#Time=190us
+#H
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/YH_t\=190us.csv ref.txt
+cut postProcessing/sample/0.00019/Centerline_H_T_U.xy -f 1,2 > Hnum.txt
+ln -s Hnum.txt num.txt
+error_H_190=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#T
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/T_t\=190us.csv ref.txt
+cut postProcessing/sample/0.00019/Centerline_H_T_U.xy -f 1,3 > Tnum.txt
+ln -s Tnum.txt num.txt
+error_T_190=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#Ux
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/Ux_t\=190us.csv ref.txt
+cut postProcessing/sample/0.00019/Centerline_H_T_U.xy -f 1,4 > Unum.txt
+ln -s Unum.txt num.txt
+error_Ux_190=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+
+#Time=230us
+#H
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/YH_t\=230us.csv ref.txt
+cut postProcessing/sample/0.00023/Centerline_H_T_U.xy -f 1,2 > Hnum.txt
+ln -s Hnum.txt num.txt
+error_H_230=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#T
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/T_t\=230us.csv ref.txt
+cut postProcessing/sample/0.00023/Centerline_H_T_U.xy -f 1,3 > Tnum.txt
+ln -s Tnum.txt num.txt
+error_T_230=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+#Ux
+rm -rf ref.txt num.txt
+ln -s ../../reference/validationData/Ux_t\=230us.csv ref.txt
+cut postProcessing/sample/0.00023/Centerline_H_T_U.xy -f 1,4 > Unum.txt
+ln -s Unum.txt num.txt
+error_Ux_230=`python ../../../scripts/one_d_react_gas_calc_errors.py`
+
+echo "$error_H_170 $error_T_170 $error_Ux_170 $error_H_190 $error_T_190 $error_Ux_190 $error_H_230 $error_T_230 $error_Ux_230" | tr -d '\n' > solution_errors
+
+rm -rf ref.txt num.txt Hnum.txt Tnum.txt Unum.txt

@@ -166,9 +166,9 @@ YHVal170="$validationDataRoot/YH_t=170us.csv"
 YHVal190="$validationDataRoot/YH_t=190us.csv"
 YHVal230="$validationDataRoot/YH_t=230us.csv"
 
-reactingPimpleCentralFoamVal170="../postProcessing/sample/0.00017/Centerline*"
-reactingPimpleCentralFoamVal190="../postProcessing/sample/0.00019/Centerline*"
-reactingPimpleCentralFoamVal230="../postProcessing/sample/0.00023/Centerline*"
+reactingPimpleCentralFoamVal170="../reactingPimpleCentralFoam/2400CPL/postProcessing/sample/0.00017/Centerline*"
+reactingPimpleCentralFoamVal190="../reactingPimpleCentralFoam/2400CPL/postProcessing/sample/0.00019/Centerline*"
+reactingPimpleCentralFoamVal230="../reactingPimpleCentralFoam/2400CPL/postProcessing/sample/0.00023/Centerline*"
 
 
 #------------------------------------------------------------------------------
@@ -176,7 +176,7 @@ reactingPimpleCentralFoamVal230="../postProcessing/sample/0.00023/Centerline*"
 # Create EPS plots
 createEpsT $TVal170 $TVal190 $TVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
 createEpsUx $UxVal170 $UxVal190 $UxVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
-createEpsGamma $GammaVal170 $GammaVal190 $GammaVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
+#createEpsGamma $GammaVal170 $GammaVal190 $GammaVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
 createEpsYH $YHVal170 $YHVal190 $YHVal230 $reactingPimpleCentralFoamVal170 $reactingPimpleCentralFoamVal190 $reactingPimpleCentralFoamVal230
 
 echo Done

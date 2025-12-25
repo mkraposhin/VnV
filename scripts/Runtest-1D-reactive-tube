@@ -15,7 +15,7 @@ function check_errors() {
     local level_errors=($1)
     local ref_errors=($2)
     local i=0
-    while [ $i -lt 4 ]
+    while [ $i -lt 3 ]
     do
         #echo "(${level_errors[$i]} <= ${ref_errors[$i]})"
         compare_floats=`echo "(${level_errors[$i]} <= ${ref_errors[$i]})" | bc`
@@ -35,8 +35,8 @@ then
         echo "$problem_name" > ../$solver_name.md
         echo "---------------------" >> ../$solver_name.md
         echo "" >> ../$solver_name.md
-        echo "|solver|mesh level|result|rho|U |p |e |" >> ../$solver_name.md
-        echo "|------|----------|------|---|--|--|--|" >> ../$solver_name.md
+        echo "|solver|mesh level|result|H |T |Ux|" >> ../$solver_name.md
+        echo "|------|----------|------|--|--|--|" >> ../$solver_name.md
         mesh_levels=`ls | grep CPL`
         for mesh_level in $mesh_levels
         do
@@ -46,6 +46,7 @@ then
                 echo "Running simulation for $mesh_level"
                 ./Allrun
                 level_errors=`cat solution_errors`
+                #level_errors="0 0 0"
                 ref_errors=`cat ../../reference/$solver_name-$mesh_level`
                 level_check_res=`check_errors "$level_errors" "$ref_errors"`
                 level_line="|$solver_name|$mesh_level|$level_check_res|"`echo "$level_errors" | sed 's/\ /|/g'`"|"
