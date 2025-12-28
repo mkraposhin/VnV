@@ -20,7 +20,7 @@ Next cases are available (uploaded to the repository):
 - [a stationary contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/StationaryContact);
 - [a moving contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/MovingContact).
 
-## Cases with automatied verification procedure
+## Cases with automated verification procedure
 
 - [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
 - [the 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube);
