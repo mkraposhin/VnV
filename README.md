@@ -6,21 +6,26 @@ The primary objective of the repository is to gather and store updated verificat
 
 Next cases are available (uploaded to the repository):
 
-- [the Sod's shock 1D tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
-- [the 2 rarefaction 1D problem](https://github.com/mkraposhin/VnV/tree/main/TwoRarefactionWaves);
-- [the shock with high pressure ratio 1D problem](https://github.com/mkraposhin/VnV/tree/main/HighPressureRatioShock);
-- [the two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks);
-- [the two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion);
-- [the forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep);
-- [the Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem);
+- [a Sod's shock 1D tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
+- [a 2-rarefaction 1D problem](https://github.com/mkraposhin/VnV/tree/main/TwoRarefactionWaves);
+- [a shock with high pressure ratio 1D problem](https://github.com/mkraposhin/VnV/tree/main/HighPressureRatioShock);
+- [a two shocks problem](https://github.com/mkraposhin/VnV/tree/main/TwoShocks);
+- [a two gases diffusion case](https://github.com/mkraposhin/VnV/tree/main/GasesDiffusion);
+- [a forward step](https://github.com/mkraposhin/VnV/tree/main/ForwardStep);
+- [a Sod's problem for two gases](https://github.com/mkraposhin/VnV/tree/main/TwoGasesSodProblem);
 - [a 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube);
-- [Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco);
+- [a Re=100 bakward facing step](https://github.com/mkraposhin/VnV/tree/main/BackwardStepIco);
 - [a planar acoustic wave propagation](https://github.com/mkraposhin/VnV/tree/main/PlanarAcousticWave);
-- [a converging-diverging nozzle](https://github.com/mkraposhin/VnV/tree/main/ConverginDivergingNozzle).
+- [a converging-diverging nozzle](https://github.com/mkraposhin/VnV/tree/main/ConverginDivergingNozzle);
+- [a stationary contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/StationaryContact);
+- [a moving contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/MovingContact).
 
 ## Cases with automatied verification procedure
 
-- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem)
+- [the Sod's shock tube](https://github.com/mkraposhin/VnV/tree/main/SodProblem);
+- [the 1D reactive tube](https://github.com/mkraposhin/VnV/tree/main/Reactive1dTube);
+- [the stationary contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/StationaryContact);
+- [the moving contact discontinuity problem](https://github.com/mkraposhin/VnV/tree/main/MovingContact).
 
 ## The structure of the repository
 
