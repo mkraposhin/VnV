@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.3.0                                 |
+|  \\    /   O peration     | Version:  2.4.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,31 +10,44 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      sampleDict;
+    location    "constant";
+    object      thermophysicalProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type sets;
-libs ("libsampling.so");
+LiqPhaseName    Liq;
+GasPhaseName    Gas;
 
-interpolationScheme cell;
+pMin            pMin [ 1 -1 -2 0 0 0 0 ] 1e-4;
 
-setFormat       csv;
+Liq
+{
+    //not used in this simulation
+    p		p;
+    T		T;
+    
+    Cp          4186;
+    Cv		4186;
+    mu          0;
+    Pr          0.73;
+    rho0	997.55;
+    p0		0;
+    R		6934;
+}
 
-sets
-(
-    line
-    {
-        type    uniform;
-        axis    x;
-        start   ( 0.0025 0 0 );
-        end     ( 9.9975 0 0 );
-        nPoints 2000;
-    }
-);
+Gas
+{
+    p           p;
+    T           T;
 
-//fields          ( volumeFraction1 p rho1 rho2 U );
-fields          ( volumeFraction1 p rho U );
+    Cp          1004.5;
+    Cv          716.7;
+    mu          0.0;
+    Pr          0.73;
+    rho0        0.0;
+    p0          0.0;
+    R           287.8;
+}
+
 
 // ************************************************************************* //

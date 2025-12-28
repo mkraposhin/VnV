@@ -1,0 +1,21 @@
+// -*- C++ -*-
+
+mixtDensity1
+{
+    // Mandatory entries
+    type     exprField;
+    libs     (fieldFunctionObjects);
+    field    rho;
+    action new;
+    autowrite       true;
+    store           true;
+    useNamePrefix   false;
+
+    executeControl  outputTime;
+    writeControl    outputTime;
+
+    expression  "rho1*volumeFraction1 + rho2*(1.0 - volumeFraction1)";
+    dimensions  [ kg/m/m/m ];
+}
+
+// ************************************************************************* //

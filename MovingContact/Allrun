@@ -1,0 +1,24 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+CUR_PATH=`pwd`
+PARENT_PATH="${CUR_PATH%/*}"
+CPL=${CUR_PATH##*/}
+SOLVER=${PARENT_PATH##*/}
+
+touch $SOLVER-$CPL.foam
+runApplication blockMesh
+cp -rf 0.orig 0
+runApplication setFields
+runApplication `getApplication`
+if [ -f ./local_commands ]
+then
+    ./local_commands
+fi
+runApplication postProcess -func sampleDict
+python ../../../scripts/one_d_2phase_calc_errors.py postProcessing/sampleDict/0.01/line_p_rho_volumeFraction1_U.csv  ../../reference/exact.csv > solution_errors
+
+#------------------------------------------------------------------------------

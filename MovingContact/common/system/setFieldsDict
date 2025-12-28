@@ -11,30 +11,31 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      sampleDict;
+    object      setFieldsDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type sets;
-libs ("libsampling.so");
-
-interpolationScheme cell;
-
-setFormat       csv;
-
-sets
+defaultFieldValues
 (
-    line
+    volScalarFieldValue T 300
+    volScalarFieldValue p 1e5
+    volVectorFieldValue U ( 10 0 0 )
+    volScalarFieldValue volumeFraction1 0
+    volScalarFieldValue Y.Liq 0
+);
+
+regions
+(
+    boxToCell
     {
-        type    uniform;
-        axis    x;
-        start   ( 0.0025 0 0 );
-        end     ( 9.9975 0 0 );
-        nPoints 2000;
+        box ( -1 -1 -1 ) ( 5 1  1 );
+        fieldValues
+        (
+            volScalarFieldValue volumeFraction1 1
+            volScalarFieldValue Y.Liq 1
+        );
     }
 );
 
-//fields          ( volumeFraction1 p rho1 rho2 U );
-fields          ( volumeFraction1 p rho U );
 
 // ************************************************************************* //

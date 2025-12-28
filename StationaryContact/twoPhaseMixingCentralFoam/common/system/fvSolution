@@ -11,30 +11,39 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      sampleDict;
+    object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type sets;
-libs ("libsampling.so");
-
-interpolationScheme cell;
-
-setFormat       csv;
-
-sets
-(
-    line
+solvers
+{
+    "(rho|U|h|p|Yi|Y.Liq).*"
     {
-        type    uniform;
-        axis    x;
-        start   ( 0.0025 0 0 );
-        end     ( 9.9975 0 0 );
-        nPoints 2000;
+        solver          PBiCGStab;
+        preconditioner	DILU;
+        tolerance       1e-015;
+        relTol          0.0;
     }
-);
+}
 
-//fields          ( volumeFraction1 p rho1 rho2 U );
-fields          ( volumeFraction1 p rho U );
+PIMPLE
+{
+    momentumPredictor           false; //true;
+    nCorrectors                 1;
+    nOuterCorrectors            3;
+    nonOrthogonalityThreshold   60;
+    skewnessThreshold           0.5;
+    updateEnergyInPISO          false;
+    fluxScheme                  Kurganov; //Tadmor;
+    
+    kappaFunction
+    {
+        type standardMachToAcCourantRatio;
+        
+        standardMachToAcCourantRatioCoeffs
+        {
+        }
+    }
+}
 
 // ************************************************************************* //

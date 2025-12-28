@@ -11,30 +11,42 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      sampleDict;
+    object      controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type sets;
-libs ("libsampling.so");
+#include        "control.include"
 
-interpolationScheme cell;
+startFrom       startTime;
 
-setFormat       csv;
+startTime       0;
 
-sets
-(
-    line
-    {
-        type    uniform;
-        axis    x;
-        start   ( 0.0025 0 0 );
-        end     ( 9.9975 0 0 );
-        nPoints 2000;
-    }
-);
+stopAt          endTime;
 
-//fields          ( volumeFraction1 p rho1 rho2 U );
-fields          ( volumeFraction1 p rho U );
+endTime         1e-2;
+
+deltaT          5.0e-6;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1e-2;
+
+cycleWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  false;
+
+maxDeltaT       1;
 
 // ************************************************************************* //
