@@ -7,10 +7,11 @@ all_files=`ls`
 
 for file_name in $all_files
 do
-    if [ -d "$file_name" ] && [ "$file_name" != "$exc_files"  ]
+    exclude_file=`echo "$exc_files" | grep "$file_name" -o`
+    if [ -d "$file_name" ] && [ "$exclude_file" = ""  ]
     then
         cd $file_name
-        ./Allclean
+        ../ProblemClean
         cd ../
     fi
 done

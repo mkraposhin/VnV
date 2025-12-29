@@ -1,0 +1,33 @@
+#!/bin/bash
+
+DIRS=`ls `
+
+SCRIPT_ROOT="$1"
+NEW_SCRIPT_ROOT="$SCRIPT_ROOT"../
+
+for DIR in $DIRS
+do
+    exclude_file=`echo "$exc_files" | grep "$DIR" -o`
+    if [ -d $DIR ]
+    then
+        if [ "$exclude_file" = ""  ]
+        then
+            cd $DIR
+            "$NEW_SCRIPT_ROOT"ProblemClean $NEW_SCRIPT_ROOT
+            cd ../
+        fi
+        if [ "$exclude_file" = "" ] && [ -f $DIR/CaseClean ]
+        then
+            echo "Cleaning case: $PWD/$DIR"
+            cd $DIR
+            ./CaseClean
+            cd ../
+        fi
+    fi
+done
+
+
+#
+#END-OF-FILE
+#
+

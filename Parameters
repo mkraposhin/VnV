@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-exc_files="scripts"
+export exc_files="scripts reports common reference 0 constant system 0.orig chemkin"
 if [ -v studied_solvers ]
 then
     echo "Studying solvers: $studied_solvers"
